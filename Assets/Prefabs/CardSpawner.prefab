@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5018147048140424894}
   - component: {fileID: 5018147048140424895}
+  - component: {fileID: 3889406427245501162}
   m_Layer: 5
   m_Name: CardSpawner
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5018147048140424889}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6, y: 0, z: -0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,6 +49,19 @@ MonoBehaviour:
   _deck: {fileID: 0}
   _spawnPosition: {fileID: 5018147049397140705}
   _maxCards: 7
+  _cardMover: {fileID: 3889406427245501162}
+--- !u!114 &3889406427245501162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018147048140424889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3a47e3e7305ca4a81868d81da39525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5018147049397140706
 GameObject:
   m_ObjectHideFlags: 0
