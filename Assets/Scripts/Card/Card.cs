@@ -12,6 +12,7 @@ public class Card : MonoBehaviour
   public CardValues ValueName => _valueName;
   public CardSuits Suit => _suit;
   public int Value => _value;
+    public CardDrag Dragger => _dragger;
 
   private void OnValidate()
   {

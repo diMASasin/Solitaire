@@ -350,6 +350,7 @@ MonoBehaviour:
   - {fileID: 301819081}
   - {fileID: 741282460}
   - {fileID: 89286389}
+  _cardSpawner: {fileID: 34866644}
 --- !u!4 &295747758
 Transform:
   m_ObjectHideFlags: 0
