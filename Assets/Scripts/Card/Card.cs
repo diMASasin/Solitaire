@@ -7,6 +7,8 @@ public class Card : MonoBehaviour
   [SerializeField] private CardSuits _suit;
   [SerializeField] private int _value;
 
+  private CardDrag _dragger;
+
   public CardValues ValueName => _valueName;
   public CardSuits Suit => _suit;
   public int Value => _value;
@@ -17,5 +19,15 @@ public class Card : MonoBehaviour
       _value = (int) _valueName;
     else
       _value = 10;
+  }
+
+  private void Awake()
+  {
+    _dragger = GetComponent<CardDrag>();
+  }
+
+  public void Move(Vector3 position)
+  {
+    _dragger.MoveToPoint(position);
   }
 }

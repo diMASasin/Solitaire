@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class Column : MonoBehaviour
 {
-  private bool _readyToAccept;
+  private const int MaxValue = 21;
 
-  private List<CardDrag> _cards = new();
+  [SerializeField] private List<Transform> _points = new();
+
+  private List<Card> _cards = new();
+  private bool _readyToAccept;
+  private int _index = 0;
+  private int _currentValue = 0;
 
   private void OnMouseEnter()
   {
@@ -16,19 +21,27 @@ public class Column : MonoBehaviour
   {
     _readyToAccept = false;
   }
-
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.TryGetComponent(out CardDrag cardDrag) && _readyToAccept == true)
-    {
-      AddNewCard(cardDrag);
-    }
-  }
-
-  public void AddNewCard(CardDrag card)
+  
+  public void AddNewCard(Card card)
   {
     _cards.Add(card);
     card.transform.position = transform.position;
-    card.MoveToPoint(transform.position);
+    card.Move(_points[_index].position);
+
+    if (_index == _points.Count)
+      return;
+
+    _index++;
+
+    _currentValue += card.Value;
+    print(_currentValue);
+    
+    if (_currentValue > 21)
+    {
+      foreach (Card item in _cards)
+      {
+        item.gameObject.SetActive(false);
+      }
+    }
   }
 }

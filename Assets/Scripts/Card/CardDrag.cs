@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -5,8 +6,8 @@ using DG.Tweening;
 public class CardDrag : MonoBehaviour
 {
   private Vector3 _offset;
-  private Vector3 _targetPosition;
   private Vector3 _startPosition;
+  private Card _card;
 
   private float _mousePointZ;
 
@@ -14,7 +15,13 @@ public class CardDrag : MonoBehaviour
 
   private void Start()
   {
+    _card = GetComponent<Card>();
     _startPosition = transform.position;
+  }
+
+  private void FixedUpdate()
+  {
+    Debug.DrawRay(transform.position, -transform.up);
   }
 
   private void OnMouseDown()
@@ -31,9 +38,15 @@ public class CardDrag : MonoBehaviour
 
   private void OnMouseUp()
   {
-    float duration = 10f;
+    var ray = new Ray(transform.position, -transform.up);
+    RaycastHit hit;
 
-    transform.DOMove(_targetPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
+    if (!Physics.Raycast(ray, out hit)) return;
+    if (!hit.collider.TryGetComponent(out Column column)) return;
+
+    print("коснулся столба");
+    ChangeState(true);
+    column.AddNewCard(_card);
   }
 
   private Vector3 GetMouseWorldPosition()
@@ -47,32 +60,16 @@ public class CardDrag : MonoBehaviour
 
   public void MoveToPoint(Vector3 point)
   {
-    float duration = 10f;
-
+    var duration = 10f;
+    
     if (_inColumn)
       transform.DOMove(point, duration * Time.deltaTime).SetEase(Ease.Linear);
     else
-      transform.DOMove(_targetPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
+      transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
   }
 
   public void ChangeState(bool state)
   {
     _inColumn = state;
-  }
-
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.TryGetComponent(out Column card))
-    {
-      _targetPosition = card.transform.position;
-    }
-  }
-
-  private void OnTriggerExit(Collider other)
-  {
-    if (other.TryGetComponent(out Column card))
-    {
-      _targetPosition = _startPosition;
-    }
   }
 }
