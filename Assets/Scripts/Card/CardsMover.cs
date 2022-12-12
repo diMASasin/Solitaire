@@ -23,7 +23,8 @@ public class CardsMover : MonoBehaviour
 
     public void RotateCard(Card card)
     {
-        Tween = card.transform.DOLocalMoveX(card.transform.localPosition.x + 1, 0.8f);
+        Vector3 localPosition = card.transform.localPosition;
+        Tween = card.transform.DOLocalMove(new Vector3(localPosition.x + 1, 0, localPosition.z - 0.01f), 0.8f);
         card.transform.DORotate(new Vector3(card.transform.eulerAngles.x, 0, 180), 0.7f);
     }
 }

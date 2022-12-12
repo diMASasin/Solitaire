@@ -28,7 +28,8 @@ public class Column : MonoBehaviour
         _cards.Add(card);
         card.transform.position = transform.position;
         card.Move(_points[_index].position);
-        _cardSpawner.GetCard().Dragger.SetCanDrag(false);
+        _cardSpawner.ShowingCard.Dragger.SetCanDrag(false);
+        _cardSpawner.ShowFirstCard();
 
         if (_index == _points.Count)
             return;

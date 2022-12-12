@@ -47,13 +47,11 @@ public class CardDrag : MonoBehaviour
         if(!_canDrag)
             return;
 
-            Debug.Log("OnMouseUp");
         var ray = new Ray(transform.position, -transform.up);
         RaycastHit hit;
 
         if (!Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Raycast");
             float duration = 10f;
             Tween tween = transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
             tween.OnComplete(() => transform.position = _startPosition);

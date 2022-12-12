@@ -14,6 +14,8 @@ public class CardSpawner : MonoBehaviour
     private List<Card> _spawnedCards = new List<Card>();
     private Card _showingCard;
 
+    public Card ShowingCard => _showingCard;
+
     private IEnumerator Start()
     {
         for (int i = 0; i < _maxCards; i++)
@@ -49,7 +51,11 @@ public class CardSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         _cardMover.RotateCard(_showingCard);
-        _cardMover.Tween.OnComplete(() => _cardMover.MoveCards(_spawnedCards));
+        _cardMover.Tween.OnComplete(() =>
+        {
+            _cardMover.MoveCards(_spawnedCards);
+            _showingCard.Dragger.SetCanDrag(true);
+        });
         _spawnedCards.Remove(_showingCard);
     }
 
