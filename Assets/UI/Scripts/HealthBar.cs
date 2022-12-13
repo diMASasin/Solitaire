@@ -4,6 +4,7 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private List<Heart> _hearts;
+    [SerializeField] private Level _level;
 
     private int _index;
 
@@ -14,7 +15,7 @@ public class HealthBar : MonoBehaviour
         _hearts[_index].gameObject.SetActive(false);
 
         if (_index == 2)
-            Time.timeScale = 0;
+            _level.Restart();
 
         _index++;
     }
