@@ -534,7 +534,7 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
-    METRICA_COUNTER_ID: 
+    METRICA_COUNTER_ID: 91656839
   mobileMTRendering:
     Android: 1
     iPhone: 1
