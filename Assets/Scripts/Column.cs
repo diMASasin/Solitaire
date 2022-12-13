@@ -53,8 +53,6 @@ public class Column : MonoBehaviour
         PointsChanged?.Invoke(_currentValue);
         print(_currentValue);
 
-        if (_currentValue == _maxValue)
-            _score.AddScore();
 
         if (_currentValue > _maxValue)
         {
@@ -74,6 +72,9 @@ public class Column : MonoBehaviour
             _currentValue = CalculateSum();
             PointsChanged?.Invoke(_currentValue);
         }
+
+        if (_currentValue == _maxValue)
+            _score.AddScore();
 
         if (_currentValue > _maxValue)
             _healthBar.RemoveHeart();
