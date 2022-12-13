@@ -1911,6 +1911,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 73998857297047638, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
+      propertyPath: _moveCardsDuration
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 73998857297047638, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
+      propertyPath: _rotateCardDuration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 73998857297047638, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
+      propertyPath: _moveCardFromDeckDuration
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 5018147048140424889, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
       propertyPath: m_Name
       value: CardSpawner

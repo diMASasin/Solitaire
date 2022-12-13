@@ -23,7 +23,7 @@ public class CardSpawner : MonoBehaviour
             SpawnCard();
             _cardMover.MoveCards(_spawnedCards);
             yield return _cardMover.Tween?.WaitForCompletion();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(_cardMover.MoveCardDurationDelay);
         }
         yield return _cardMover.Tween?.WaitForCompletion();
 
@@ -49,7 +49,7 @@ public class CardSpawner : MonoBehaviour
 
     private IEnumerator DelayedRotateCard()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(_cardMover.MoveCardFromDeckDelay);
         _cardMover.RotateCard(_showingCard);
         _cardMover.Tween.OnComplete(() =>
         {
