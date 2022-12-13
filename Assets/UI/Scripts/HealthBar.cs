@@ -15,7 +15,10 @@ public class HealthBar : MonoBehaviour
         _hearts[_index].gameObject.SetActive(false);
 
         if (_index == 2)
+        {
+            _level.Lose();
             _level.Restart();
+        }
 
         _index++;
     }
