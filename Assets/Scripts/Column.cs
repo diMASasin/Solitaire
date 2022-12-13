@@ -8,6 +8,8 @@ public class Column : MonoBehaviour
 
     [SerializeField] private List<Transform> _points = new();
     [SerializeField] private CardSpawner _cardSpawner;
+    [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private Score _score;
 
     private List<Card> _cards = new();
     private bool _readyToAccept;
@@ -16,20 +18,11 @@ public class Column : MonoBehaviour
 
     public event Action<int> PointsChanged;
 
-    private void Start()
-    {
-        PointsChanged?.Invoke(_currentValue);
-    }
+    private void Start() => PointsChanged?.Invoke(_currentValue);
 
-    private void OnMouseEnter()
-    {
-        _readyToAccept = true;
-    }
+    private void OnMouseEnter() => _readyToAccept = true;
 
-    private void OnMouseExit()
-    {
-        _readyToAccept = false;
-    }
+    private void OnMouseExit() => _readyToAccept = false;
 
     private void Reset()
     {
@@ -60,14 +53,15 @@ public class Column : MonoBehaviour
         PointsChanged?.Invoke(_currentValue);
         print(_currentValue);
 
-        if(_currentValue > _maxValue)
+
+        if (_currentValue > _maxValue)
         {
             foreach (var card1 in _cards)
             {
-                if(card1.ValueName == CardValues.Ace)
+                if (card1.ValueName == CardValues.Ace)
                 {
                     var ace = card1 as TwoValuesCard;
-                    if(!ace.IsSecondValueUsing)
+                    if (!ace.IsSecondValueUsing)
                     {
                         ace.IsSecondValueUsing = true;
                         break;
@@ -78,6 +72,12 @@ public class Column : MonoBehaviour
             _currentValue = CalculateSum();
             PointsChanged?.Invoke(_currentValue);
         }
+
+        if (_currentValue == _maxValue)
+            _score.AddScore();
+
+        if (_currentValue > _maxValue)
+            _healthBar.RemoveHeart();
 
         if (_currentValue >= _maxValue)
             Reset();

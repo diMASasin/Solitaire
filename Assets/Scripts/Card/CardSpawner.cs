@@ -67,5 +67,4 @@ public class CardSpawner : MonoBehaviour
             _spawnedCards.Add(newCard);
         }
     }
-
 }
