@@ -7,6 +7,7 @@ public class RestartPanel : MonoBehaviour
 {
     [SerializeField] private UITimeHandler _timeHandler;
     [SerializeField] private Button _button;
+    [SerializeField] private UIFakeCard _fakeCard;
 
     private HealthBar _healthBar;
     private Level _level;
@@ -30,15 +31,27 @@ public class RestartPanel : MonoBehaviour
         _level = level;
     }
 
-    private void OnOpenCallback() => _healthBar.AddHeart();
+    private void OnOpenCallback() => _healthBar.AddHeart(); //Где включается панель, дающая жизнь?? И отключается
 
-    private void OnCloseCallback() => gameObject.SetActive(false);
+    private void OnCloseCallback()
+    {
+        _fakeCard.gameObject.SetActive(false);
 
-    private void OnErrorCallback()
-    { 
-        _healthBar.AddHeart();
         gameObject.SetActive(false);
     }
 
-    private void OnClose() => _button.gameObject.SetActive(true);
+    private void OnErrorCallback()
+    {
+        _healthBar.AddHeart();
+        _fakeCard.gameObject.SetActive(false);
+
+        gameObject.SetActive(false);
+    }
+
+    private void OnClose()
+    {
+        _fakeCard.gameObject.SetActive(false);
+
+        gameObject.SetActive(false);
+    }
 }

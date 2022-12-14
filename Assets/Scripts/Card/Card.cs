@@ -18,17 +18,15 @@ public class Card : MonoBehaviour
     {
         if ((int)_valueName <= 11)
             _value = (int)_valueName;
-        else
-            _value = 10;
+        else if (_valueName == CardValues.Jack)
+            _value = 3;
+        else if (_valueName == CardValues.Queen)
+            _value = 4;
+        else if (_valueName == CardValues.King)
+            _value = 5;
     }
 
-    private void Awake()
-    {
-        _dragger = GetComponent<CardDrag>();
-    }
+    private void Awake() => _dragger = GetComponent<CardDrag>();
 
-    public void Move(Vector3 position)
-    {
-        _dragger.MoveToPoint(position);
-    }
+    public void Move(Vector3 position) => _dragger.MoveToPoint(position);
 }
