@@ -18,7 +18,7 @@ public class RestartPanel : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
         OnErrorCallback();
 #endif
-        //вырубить музыку
+        //РІС‹СЂСѓР±РёС‚СЊ РјСѓР·С‹РєСѓ
         VideoAd.Show(OnOpenCallback, OnCloseCallback, OnErrorCallback);
     }
 
