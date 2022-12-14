@@ -3,8 +3,6 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    private const int Revard = 150;
-
     [SerializeField] private TextMeshProUGUI _text;
 
     private int _value;
@@ -17,11 +15,14 @@ public class Score : MonoBehaviour
         private set { PlayerPrefs.SetInt(TOTAL_VALUE, value); }
     }
 
+    public int Value => _value;
+
+    private const int Revard = 150;
+
     public void AddScore()
     {
         _value += Revard;
         TotalValue += Revard;
-        Debug.Log(TotalValue);
         _text.text = "—чет:" + _value.ToString();
     }
 }

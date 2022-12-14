@@ -5,8 +5,14 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private List<Heart> _hearts;
     [SerializeField] private Level _level;
+    //[SerializeField] private YandexLeaderboard _leaderboard;
+    [SerializeField] private YandexAd _yandexAd;
+    [SerializeField] private Score _score;
+    [SerializeField] private RestartPanel _restartPanel;
 
     private int _index;
+    
+    private const int MaxIndex = 2;
 
     private void Start() => _index = 0;
 
@@ -16,10 +22,20 @@ public class HealthBar : MonoBehaviour
 
         if (_index == 2)
         {
-            _level.Lose();
-            _level.Restart();
+            //_level.Lose();
+            //_level.Restart();
+            _restartPanel.gameObject.SetActive(true);
+            _restartPanel.Init(this, _level);
+            //_leaderboard.SetLeaderboardScore(_score.Value);
         }
 
         _index++;
+    }
+
+    public void AddHeart()
+    {
+        _index = 2;
+
+        _hearts[MaxIndex].gameObject.SetActive(true);
     }
 }
