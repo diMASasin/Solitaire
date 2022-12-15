@@ -18,6 +18,9 @@ public class Column : MonoBehaviour
 
     public event Action<int> PointsChanged;
 
+    public int CardsCount => _cards.Count;
+    public Card FirstCard => _cards[0];
+
     private void Start() => PointsChanged?.Invoke(_currentValue);
 
     private void OnMouseEnter() => _readyToAccept = true;

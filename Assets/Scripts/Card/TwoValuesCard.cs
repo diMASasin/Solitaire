@@ -6,5 +6,6 @@ public class TwoValuesCard : Card
 
     [HideInInspector] public bool IsSecondValueUsing = false;
 
+    public int SecondValue => _secondValue;
     public override int Value => IsSecondValueUsing ? _secondValue : base.Value;
 }
