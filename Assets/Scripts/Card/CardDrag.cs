@@ -5,93 +5,93 @@ using DG.Tweening;
 [RequireComponent(typeof(BoxCollider))]
 public class CardDrag : MonoBehaviour
 {
-    private Vector3 _offset;
-    private Vector3 _startPosition;
-    private Card _card;
+  private Vector3 _offset;
+  private Vector3 _startPosition;
+  private Card _card;
 
-    private float _mousePointZ;
+  private float _mousePointZ;
 
-    private bool _inColumn = false;
-    private bool _canDrag = false;
-    private bool _onStartPosition = false;
+  private bool _inColumn = false;
+  private bool _canDrag = false;
+  private bool _onStartPosition = false;
 
-    private void Start()
+  private void Start()
+  {
+    _card = GetComponent<Card>();
+  }
+
+  private void FixedUpdate()
+  {
+    Debug.DrawRay(transform.position, -transform.up);
+  }
+
+  private void OnMouseDown()
+  {
+    _onStartPosition = transform.position == _startPosition;
+    if (!_onStartPosition)
+      return;
+
+    _mousePointZ = Camera.main.WorldToScreenPoint(transform.position).z;
+
+    _offset = transform.position - GetMouseWorldPosition();
+  }
+
+  private void OnMouseDrag()
+  {
+    if (_canDrag && _onStartPosition)
+      transform.position = GetMouseWorldPosition() + _offset;
+  }
+
+  private void OnMouseUp()
+  {
+    if (!_canDrag)
+      return;
+
+    var ray = new Ray(transform.position, -transform.up);
+    RaycastHit hit;
+
+    if (!Physics.Raycast(ray, out hit))
     {
-        _card = GetComponent<Card>();
+      float duration = 10f;
+      Tween tween = transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
+      tween.OnComplete(() => transform.position = _startPosition);
+      return;
     }
 
-    private void FixedUpdate()
-    {
-        Debug.DrawRay(transform.position, -transform.up);
-    }
+    if (!hit.collider.TryGetComponent(out Column column))
+      return;
 
-    private void OnMouseDown()
-    {
-        _onStartPosition = transform.position == _startPosition;
-        if (!_onStartPosition)
-            return;
+    ChangeState(true);
+    column.AddNewCard(_card);
+  }
 
-        _mousePointZ = Camera.main.WorldToScreenPoint(transform.position).z;
+  private Vector3 GetMouseWorldPosition()
+  {
+    Vector3 mousePoint = Input.mousePosition;
 
-        _offset = transform.position - GetMouseWorldPosition();
-    }
+    mousePoint.z = _mousePointZ;
 
-    private void OnMouseDrag()
-    {
-        if(_canDrag && _onStartPosition)
-            transform.position = GetMouseWorldPosition() + _offset;
-    }
+    return Camera.main.ScreenToWorldPoint(mousePoint);
+  }
 
-    private void OnMouseUp()
-    { 
-        if(!_canDrag)
-            return;
+  public void MoveToPoint(Vector3 point)
+  {
+    var duration = 10f;
 
-        var ray = new Ray(transform.position, -transform.up);
-        RaycastHit hit;
+    if (_inColumn)
+      transform.DOMove(point, duration * Time.deltaTime).SetEase(Ease.Linear);
+  }
 
-        if (!Physics.Raycast(ray, out hit))
-        {
-            float duration = 10f;
-            Tween tween = transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
-            tween.OnComplete(() => transform.position = _startPosition);
-            return;
-        }
-        if (!hit.collider.TryGetComponent(out Column column))
-            return;
+  private void ChangeState(bool state)
+  {
+    _inColumn = state;
+  }
 
-        print("коснулся столба");
-        ChangeState(true);
-        column.AddNewCard(_card);
-    }
+  public void SetCanDrag(bool value)
+  {
+    _canDrag = value;
 
-    private Vector3 GetMouseWorldPosition()
-    {
-        Vector3 mousePoint = Input.mousePosition;
-
-        mousePoint.z = _mousePointZ;
-
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }
-
-    public void MoveToPoint(Vector3 point)
-    {
-        var duration = 10f;
-
-        if (_inColumn)
-            transform.DOMove(point, duration * Time.deltaTime).SetEase(Ease.Linear);
-    }
-
-    public void ChangeState(bool state)
-    {
-        _inColumn = state;
-    }
-
-    public void SetCanDrag(bool value)
-    {
-        _canDrag = value;
-
-        if(value)
-            _startPosition = transform.position;
-    }
+    if (value)
+      _startPosition = transform.position;
+  }
 }

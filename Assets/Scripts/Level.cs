@@ -4,23 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    public event UnityAction LevelStarted;
-    public event UnityAction LevelRestarted;
-    public event UnityAction LevelLost;
+  public event UnityAction LevelStarted;
+  public event UnityAction LevelRestarted;
+  public event UnityAction LevelLost;
 
-    private void Start()
-    {
-        LevelStarted?.Invoke();
-    }
+  private void Start() => LevelStarted?.Invoke();
 
-    public void Restart()
-    {
-        LevelRestarted?.Invoke();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+  public void Restart()
+  {
+    LevelRestarted?.Invoke();
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+  }
 
-    public void Lose()
-    {
-        LevelLost?.Invoke();
-    }
+  public void Lose() => LevelLost?.Invoke();
 }

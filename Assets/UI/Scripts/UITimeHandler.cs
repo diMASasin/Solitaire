@@ -32,7 +32,7 @@ public class UITimeHandler : MonoBehaviour
 
             _circle.fillAmount -= Step;
         }
-
+        
         action.Invoke();
     }
 

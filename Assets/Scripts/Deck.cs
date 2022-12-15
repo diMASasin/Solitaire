@@ -8,10 +8,7 @@ public class Deck : MonoBehaviour
 
   private List<Card> _currentDeck;
 
-  private void Awake()
-  {
-    RefreshDeck();
-  }
+  private void Awake() => RefreshDeck();
 
   public bool TryGetRandomCard(out Card card)
   {
@@ -28,8 +25,5 @@ public class Deck : MonoBehaviour
     return true;
   }
 
-  private void RefreshDeck()
-  {
-    _currentDeck = _fullDeck.ToList();
-  }
+  private void RefreshDeck() => _currentDeck = _fullDeck.ToList();
 }
