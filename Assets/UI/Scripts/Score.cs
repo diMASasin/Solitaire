@@ -19,10 +19,15 @@ public class Score : MonoBehaviour
 
     private const int Revard = 150;
 
-    public void AddScore()
+    public void AddScore() 
     {
         _value += Revard;
-        TotalValue += Revard;
+
+        Debug.Log(TotalValue);
         _text.text = "—чет:" + _value.ToString();
+
+        if (_value > TotalValue)
+            TotalValue = _value;
+
     }
 }

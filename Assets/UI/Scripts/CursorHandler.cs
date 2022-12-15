@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
@@ -9,11 +8,7 @@ public class CursorHandler : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButton(0))
-            _cursor.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 7.61f)); //-27.61 должно быть
-
-
-        Debug.Log(Input.mousePosition.z);
-        //_cursor.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition); //-26.52
+            _cursor.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 7.61f)); 
     }
 
     //[SerializeField] private SpriteRenderer _cursorSpriteRenderer;

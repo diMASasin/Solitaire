@@ -18,12 +18,6 @@ public class Card : MonoBehaviour
     {
         if ((int)_valueName <= 11)
             _value = (int)_valueName;
-        else if (_valueName == CardValues.Jack)
-            _value = 3;
-        else if (_valueName == CardValues.Queen)
-            _value = 4;
-        else if (_valueName == CardValues.King)
-            _value = 5;
     }
 
     private void Awake() => _dragger = GetComponent<CardDrag>();

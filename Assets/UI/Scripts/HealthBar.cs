@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private RestartPanel _restartPanel;
     [SerializeField] private RestartPanel _gameoverPanel;
     [SerializeField] private UIFakeCard _fakeCard;
-    //[SerializeField] private YandexLeaderboard _leaderboard;
+    [SerializeField] private YandexLeaderboard _leaderboard;
 
     private int _index;
     private bool _rewarnPanelShown = false;
@@ -23,25 +23,27 @@ public class HealthBar : MonoBehaviour
     {
         _hearts[_index].MoveToStartPosition();
 
-        if (_rewarnPanelShown == true)
+        if (_rewarnPanelShown == true) //если показывался рестарт  - закончить текущию сессию.
         {
             _restartPanel.Init(this, _level);
 
             _gameoverPanel.gameObject.SetActive(true);
             _fakeCard.gameObject.SetActive(true);
+
+            _leaderboard.SetLeaderboardScore(_score.TotalValue); //
+            Debug.Log(_score.TotalValue);
+
             return;
         }
 
-        if (_index == 2)
+        if (_index == 2) //_index == 2
         {
-            //_level.Lose();
-            //_level.Restart();
             _restartPanel.gameObject.SetActive(true);
             _rewarnPanelShown = true;
             _fakeCard.gameObject.SetActive(true);
-            //_cardSpawner.enabled = false;
             _restartPanel.Init(this, _level);
-            //_leaderboard.SetLeaderboardScore(_score.Value);
+            _leaderboard.SetLeaderboardScore(_score.TotalValue); //
+            Debug.Log(_score.TotalValue);
         }
 
         _index++;
