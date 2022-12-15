@@ -12,7 +12,7 @@ public class YandexAd : MonoBehaviour
 
     public void ShowBilboardAd() => InterstitialAd.Show();
 
-    public void ShowVideoAd() => VideoAd.Show(() => OnOpenCallback(), onCloseCallback: () => OnCloseCallback());
+    public void ShowVideoAd(Action OnRewarded) => VideoAd.Show(OnOpenCallback, OnRewarded, OnCloseCallback);
 
     private void OnOpenCallback()
     {

@@ -23,11 +23,11 @@ public class Score : MonoBehaviour
     {
         _value += Revard;
 
-        Debug.Log(TotalValue);
         _text.text = "—чет:" + _value.ToString();
 
         if (_value > TotalValue)
             TotalValue = _value;
 
+        Debug.Log(TotalValue);
     }
 }

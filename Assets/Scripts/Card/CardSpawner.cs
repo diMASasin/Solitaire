@@ -28,6 +28,7 @@ public class CardSpawner : MonoBehaviour
         yield return _cardMover.Tween?.WaitForCompletion();
 
         ShowFirstCard();
+        SpawnCard();
     }
 
     public void DestroyCard()
@@ -36,15 +37,35 @@ public class CardSpawner : MonoBehaviour
             return;
 
         Destroy(_showingCard.gameObject);
-        ShowFirstCard();
     }
 
     public void ShowFirstCard()
     {
         _showingCard = _spawnedCards[0];
-        SpawnCard();
         _cardMover.MoveCardFromDeck(_showingCard);
         _cardMover.Tween.OnComplete(() => StartCoroutine(DelayedRotateCard()));
+    }
+
+    public void InsertInFirst(Card card)
+    {
+        var pos = _spawnedCards[0].transform.localPosition;
+        _spawnedCards.Insert(0, card);
+        card.transform.parent = _spawnPosition;
+        card.transform.localPosition = pos;
+    }
+
+    public void SpawnCard()
+    {
+        if (_deck.TryGetRandomCard(out Card card))
+        {
+            var newCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 0, 0), _spawnPosition);
+            _spawnedCards.Add(newCard);
+        }
+    }
+
+    public void MoveSpawnedCardsBack()
+    {
+        _cardMover.MoveCardsBack(_spawnedCards);
     }
 
     private IEnumerator DelayedRotateCard()
@@ -59,12 +80,4 @@ public class CardSpawner : MonoBehaviour
         _spawnedCards.Remove(_showingCard);
     }
 
-    private void SpawnCard()
-    {
-        if (_deck.TryGetRandomCard(out Card card))
-        {
-            var newCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 0, 0), _spawnPosition);
-            _spawnedCards.Add(newCard);
-        }
-    }
 }
