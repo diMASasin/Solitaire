@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,6 @@ public class JokerGiver : MonoBehaviour
     [SerializeField] private Column[] _columns;
     [SerializeField] private Button _jokerButton;
     [SerializeField] private GameObject _jokerTemplate;
-    [SerializeField] private Transform _jokerSpawnPosition;
     [SerializeField] private CardSpawner _cardSpawner;
 
     private void OnValidate()
@@ -36,7 +33,7 @@ public class JokerGiver : MonoBehaviour
 
         ResetMaxValueReached();
 
-        var joker = Instantiate(_jokerTemplate, _jokerSpawnPosition.position, Quaternion.Euler(new Vector3(90, 0, 0))).GetComponent<Card>();
+        var joker = Instantiate(_jokerTemplate, Vector3.zero, Quaternion.Euler(new Vector3(90, 0, 0))).GetComponent<Card>();
 
         _cardSpawner.InsertInFirst(joker);
         _cardSpawner.DestroyCard();
