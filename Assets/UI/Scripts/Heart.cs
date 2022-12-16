@@ -24,9 +24,11 @@ public class Heart : MonoBehaviour
   public void MoveToStartPosition()
   {
     const float rotationDuration = .2f;
+    const int force = 150;
     var rotation = new Vector3(360, 0, 0);
 
     _rigidbody.isKinematic = false;
+    _rigidbody.AddForce((Vector3.up + Vector3.left) * force);
 
     _tween = _rigidbody
       .DORotate(rotation, rotationDuration)

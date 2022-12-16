@@ -9,6 +9,7 @@ public class RestartPanel : MonoBehaviour
   [SerializeField] private Button _skipButton;
   [SerializeField] private Button _rewardButton;
   [SerializeField] private Level _level;
+  [SerializeField] private Image _circle;
 
   private HealthBar _healthBar;
 
@@ -54,6 +55,7 @@ public class RestartPanel : MonoBehaviour
 
     if (_rewardButton != null)
     {
+      _circle.gameObject.SetActive(false);
       _rewardButton.gameObject.SetActive(false);
       _skipButton.gameObject.SetActive(true);
     }
