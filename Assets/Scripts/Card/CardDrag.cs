@@ -12,8 +12,8 @@ public class CardDrag : MonoBehaviour
   private float _mousePointZ;
 
   private bool _inColumn = false;
-  private bool _canDrag = false;
-  private bool _onStartPosition = false;
+  public bool CanDrag { get; private set; } = false;
+  private bool _onStartPosition  = false;
 
   private void Start()
   {
@@ -38,13 +38,13 @@ public class CardDrag : MonoBehaviour
 
   private void OnMouseDrag()
   {
-    if (_canDrag && _onStartPosition)
+    if (CanDrag && _onStartPosition)
       transform.position = GetMouseWorldPosition() + _offset;
   }
 
   private void OnMouseUp()
   {
-    if (!_canDrag)
+    if (!CanDrag)
       return;
 
     var ray = new Ray(transform.position, -transform.up);
@@ -89,9 +89,10 @@ public class CardDrag : MonoBehaviour
 
   public void SetCanDrag(bool value)
   {
-    _canDrag = value;
+    CanDrag = value;
 
     if (value)
       _startPosition = transform.position;
+        Debug.Log(_startPosition);
   }
 }
