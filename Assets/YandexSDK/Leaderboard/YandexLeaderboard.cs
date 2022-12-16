@@ -13,6 +13,7 @@ public class YandexLeaderboard : MonoBehaviour
     [SerializeField] private PlayerRankingView _rankingViewPrefab;
     [SerializeField] private PlayerRankingView _playerRank;
     [SerializeField] private Transform _container;
+    [SerializeField] private AutorizePanel _autorizePanel;
 
     private int _rankingMaxCount = 5;
 
@@ -20,8 +21,18 @@ public class YandexLeaderboard : MonoBehaviour
 
     public void SetLeaderboardScore(int value) => Leaderboard.SetScore(LeaderboardName, value);
 
-    public void Show()
+    public void Show() //В шоу добавить разделение авторизован/али нет
     {
+        //AuthtirizeIfNeed();
+
+        if (PlayerAccount.IsAuthorized == false)
+        {
+            _autorizePanel.gameObject.SetActive(true);
+            return;
+        }
+        else
+            _autorizePanel.gameObject.SetActive(false);
+
         PlayerRankingView[] _ranking = _container.GetComponentsInChildren<PlayerRankingView>();
 
         foreach (var item in _ranking)
@@ -60,11 +71,11 @@ public class YandexLeaderboard : MonoBehaviour
     {
         if (PlayerAccount.IsAuthorized == false && PlayerAccount.HasPersonalProfileDataPermission == false)
         {
-            if (PlayerAccount.IsAuthorized == false)
-            {
-                PlayerAccount.Authorize(OnSucces);
-            }
-            else if (PlayerAccount.HasPersonalProfileDataPermission == false)
+            //if (PlayerAccount.IsAuthorized == false)
+            //{
+            //    PlayerAccount.Authorize(OnSucces);
+            //}
+            if (PlayerAccount.HasPersonalProfileDataPermission == false)
             {
                 PlayerAccount.RequestPersonalProfileDataPermission();
             }
