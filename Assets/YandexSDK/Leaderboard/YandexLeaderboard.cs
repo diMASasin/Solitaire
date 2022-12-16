@@ -21,10 +21,8 @@ public class YandexLeaderboard : MonoBehaviour
 
     public void SetLeaderboardScore(int value) => Leaderboard.SetScore(LeaderboardName, value);
 
-    public void Show() //В шоу добавить разделение авторизован/али нет
+    public void Show() 
     {
-        //AuthtirizeIfNeed();
-
         if (PlayerAccount.IsAuthorized == false)
         {
             _autorizePanel.gameObject.SetActive(true);
@@ -71,14 +69,8 @@ public class YandexLeaderboard : MonoBehaviour
     {
         if (PlayerAccount.IsAuthorized == false && PlayerAccount.HasPersonalProfileDataPermission == false)
         {
-            //if (PlayerAccount.IsAuthorized == false)
-            //{
-            //    PlayerAccount.Authorize(OnSucces);
-            //}
             if (PlayerAccount.HasPersonalProfileDataPermission == false)
-            {
                 PlayerAccount.RequestPersonalProfileDataPermission();
-            }
 
             void OnSucces()
             {

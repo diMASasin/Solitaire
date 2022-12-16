@@ -18,6 +18,8 @@ public class Card : MonoBehaviour
     {
         if ((int)_valueName <= 11)
             _value = (int)_valueName;
+        else
+            _value = 10;
     }
 
     private void Awake() => _dragger = GetComponent<CardDrag>();
