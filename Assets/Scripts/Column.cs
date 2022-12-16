@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Column : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Column : MonoBehaviour
     [SerializeField] private CardSpawner _cardSpawner;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Score _score;
+    [SerializeField] private SumPointsInColumn _sumPointInColumn;
 
     private List<Card> _cards = new();
     private bool _readyToAccept;
@@ -21,7 +23,10 @@ public class Column : MonoBehaviour
     public int CardsCount => _cards.Count;
     public Card FirstCard => _cards[0];
 
-    private void Start() => PointsChanged?.Invoke(_currentValue);
+    private void Start()
+    {
+        PointsChanged?.Invoke(_currentValue);
+    }
 
     private void OnMouseEnter() => _readyToAccept = true;
 
@@ -56,7 +61,6 @@ public class Column : MonoBehaviour
         PointsChanged?.Invoke(_currentValue);
         print(_currentValue);
 
-
         if (_currentValue > _maxValue)
         {
             foreach (var card1 in _cards)
@@ -77,13 +81,21 @@ public class Column : MonoBehaviour
         }
 
         if (_currentValue == _maxValue)
+        { 
             _score.AddScore();
+            _sumPointInColumn.ChangeColor(Color.green);
 
-        if (_currentValue > _maxValue)
+            var tween = DOTween.Sequence();
+            tween.SetDelay(_sumPointInColumn.DelayColorChange).OnComplete(Reset);
+        }
+        else if (_currentValue > _maxValue) 
+        {
+            _sumPointInColumn.ChangeColor(Color.red);
             _healthBar.RemoveHeart();
 
-        if (_currentValue >= _maxValue)
-            Reset();
+            var tween = DOTween.Sequence();
+            tween.SetDelay(_sumPointInColumn.DelayColorChange).OnComplete(Reset);
+        }
     }
 
     private int CalculateSum()

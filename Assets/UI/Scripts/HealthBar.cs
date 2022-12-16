@@ -23,27 +23,25 @@ public class HealthBar : MonoBehaviour
     {
         _hearts[_index].MoveToStartPosition();
 
-        if (_rewarnPanelShown == true) //если показывался рестарт  - закончить текущию сессию.
+        if (_rewarnPanelShown == true) 
         {
             _restartPanel.Init(this, _level);
 
             _gameoverPanel.gameObject.SetActive(true);
             _fakeCard.gameObject.SetActive(true);
 
-            _leaderboard.SetLeaderboardScore(_score.TotalValue); //
-            Debug.Log(_score.TotalValue);
+            _leaderboard.SetLeaderboardScore(_score.TotalValue); 
 
             return;
         }
 
-        if (_index == 2) //_index == 2
+        if (_index == 2) 
         {
             _restartPanel.gameObject.SetActive(true);
             _rewarnPanelShown = true;
             _fakeCard.gameObject.SetActive(true);
             _restartPanel.Init(this, _level);
-            _leaderboard.SetLeaderboardScore(_score.TotalValue); //
-            Debug.Log(_score.TotalValue);
+            _leaderboard.SetLeaderboardScore(_score.TotalValue); 
         }
 
         _index++;

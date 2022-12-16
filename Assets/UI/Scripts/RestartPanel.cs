@@ -31,7 +31,7 @@ public class RestartPanel : MonoBehaviour
     _level = level;
   }
 
-  private void OnOpenCallback() => _healthBar.AddHeart(); //Где включается панель, дающая жизнь?? И отключается
+  private void OnOpenCallback() => _healthBar.AddHeart(); 
 
   private void OnCloseCallback()
   {
@@ -57,6 +57,5 @@ public class RestartPanel : MonoBehaviour
       _rewardButton.gameObject.SetActive(false);
       _skipButton.gameObject.SetActive(true);
     }
-    // gameObject.SetActive(false);
   }
 }
