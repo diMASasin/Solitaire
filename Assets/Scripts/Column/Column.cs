@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Column : MonoBehaviour
     [SerializeField] private CardSpawner _cardSpawner;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Score _score;
+    [SerializeField] private SumPointsInColumn _sumPointColumn;
 
     private List<Card> _cards = new();
     private bool _readyToAccept;
@@ -70,18 +72,29 @@ public class Column : MonoBehaviour
         if (_currentValue == _maxValue)
         {
             _score.AddScore();
+            _sumPointColumn.ChangeColor(Color.green);
+
             if (card.ValueName != CardValues.Joker)
             {
                 IsMaxValueReached = true;
                 MaxValueReachedChanged?.Invoke();
             }
+
+            var tween = DOTween.Sequence();
+            tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);
         }
 
         if (_currentValue > _maxValue)
+        {
+            _sumPointColumn.ChangeColor(Color.red);
             _healthBar.RemoveHeart();
 
-        if (_currentValue >= _maxValue)
-            Reset();
+            var tween = DOTween.Sequence();
+            tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);
+        }
+
+        //if (_currentValue >= _maxValue)
+        //    Reset();
     }
 
     public void ResetMaxValueReached()
