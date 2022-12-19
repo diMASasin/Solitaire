@@ -20,10 +20,10 @@ public class CardDrag : MonoBehaviour
     _card = GetComponent<Card>();
   }
 
-  private void FixedUpdate()
-  {
-    Debug.DrawRay(transform.position, -transform.up);
-  }
+  //private void FixedUpdate()
+  //{
+  //  Debug.DrawRay(transform.position, -transform.up);
+  //}
 
   private void OnMouseDown()
   {
