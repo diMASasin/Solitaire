@@ -6629,6 +6629,10 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 111.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3833886477766691377, guid: f6ad9c724fe09a5499f4e0e06b9cb5ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3833886478015795271, guid: f6ad9c724fe09a5499f4e0e06b9cb5ac, type: 3}
       propertyPath: m_LocalScale.x
       value: 75.29399
@@ -16600,7 +16604,7 @@ PrefabInstance:
       objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
     - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
       propertyPath: _secondTutorialDeck.Array.size
-      value: 52
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
       propertyPath: _secondTutorialDeck.Array.data[0]
