@@ -64,8 +64,6 @@ public class Column : MonoBehaviour
             _currentValue += card.Value;
 
         PointsChanged?.Invoke(_currentValue);
-        print(_currentValue);
-
 
         TryChangeAcePoints();
 
@@ -89,9 +87,6 @@ public class Column : MonoBehaviour
             var tween = DOTween.Sequence();
             tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);
         }
-
-        //if (_currentValue >= _maxValue)
-        //    Reset();
     }
 
     public void ResetMaxValueReached()
@@ -128,7 +123,6 @@ public class Column : MonoBehaviour
         foreach (var card in _cards)
             sum += card.Value;
 
-        Debug.Log($"CalculateSum: {sum}");
         return sum;
     }
 }

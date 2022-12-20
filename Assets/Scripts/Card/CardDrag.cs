@@ -93,6 +93,5 @@ public class CardDrag : MonoBehaviour
 
     if (value)
       _startPosition = transform.position;
-        Debug.Log(_startPosition);
   }
 }

@@ -25,10 +25,7 @@ public class SumPointsInColumn : MonoBehaviour
 
     private void OnDisable() => _column.PointsChanged -= OnPointChanged;
 
-    public void ChangeColor(Color color)
-    {
-        _tween.Append(_text.DOColor(color, _delayColorChange).OnComplete(SetStartColor));
-    }
+    public void ChangeColor(Color color) => _tween.Append(_text.DOColor(color, _delayColorChange).OnComplete(SetStartColor));
 
     private void SetStartColor() => _text.color = Color.white;
 
