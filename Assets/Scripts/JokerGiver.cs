@@ -8,7 +8,7 @@ public class JokerGiver : MonoBehaviour
     [SerializeField] private GameObject _jokerTemplate;
     [SerializeField] private CardSpawner _cardSpawner;
     [SerializeField] private ParticleSystem _columnsEffect;
-    [SerializeField] private ParticleSystem _jokerEffect;
+    [SerializeField] private ParticleSystem[] _jokerEffects;
 
     private void OnValidate()
     {
@@ -50,8 +50,10 @@ public class JokerGiver : MonoBehaviour
                 return;
 
         _jokerButton.gameObject.SetActive(true);
+
         _columnsEffect.Play();
-        _jokerEffect.Play();
+        foreach (var effect in _jokerEffects)
+            effect.Play();
     }
 
     private void ResetMaxValueReached()
