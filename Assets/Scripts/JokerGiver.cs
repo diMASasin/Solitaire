@@ -7,8 +7,8 @@ public class JokerGiver : MonoBehaviour
     [SerializeField] private Button _jokerButton;
     [SerializeField] private GameObject _jokerTemplate;
     [SerializeField] private CardSpawner _cardSpawner;
-    [SerializeField] private ParticleSystem _columnsEffect;
-    [SerializeField] private ParticleSystem[] _jokerEffects;
+    [SerializeField] private ParticleSystem[] _columnsEffect;
+    [SerializeField] private ParticleSystem _jokerEffect;
 
     private void OnValidate()
     {
@@ -51,8 +51,8 @@ public class JokerGiver : MonoBehaviour
 
         _jokerButton.gameObject.SetActive(true);
 
-        _columnsEffect.Play();
-        foreach (var effect in _jokerEffects)
+        _jokerEffect.Play();
+        foreach (var effect in _columnsEffect)
             effect.Play();
     }
 

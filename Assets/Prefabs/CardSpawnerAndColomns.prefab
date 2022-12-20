@@ -159,7 +159,8 @@ MonoBehaviour:
   _jokerButton: {fileID: 0}
   _jokerTemplate: {fileID: 139270, guid: 6036994ad3750a34988ee90262d1342a, type: 3}
   _cardSpawner: {fileID: 1520475669059069312}
-  _columnsEffect: {fileID: 244723056186578844}
+  _columnsEffect:
+  - {fileID: 0}
   _jokerEffect: {fileID: 6506897238648705618}
 --- !u!1 &7924229828561094646
 GameObject:
@@ -199,6 +200,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7924229826686787346}
     m_Modifications:
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.b
+      value: 0.09411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.g
+      value: 0.7568628
+      objectReference: {fileID: 0}
     - target: {fileID: 5146208519424720510, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -277,22 +286,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7924229826686787346}
     m_Modifications:
-    - target: {fileID: 1639407283, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1639407283, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 1705661685358848441, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2940659650060720306, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5018147048140424889, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
       propertyPath: m_Name
       value: CardSpawner
@@ -341,17 +334,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5018147048140424895, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
-      propertyPath: _deck
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
---- !u!198 &244723056186578844 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6041777796641944739, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
-  m_PrefabInstance: {fileID: 5818046775377142591}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1520475669059069312 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5018147048140424895, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
@@ -474,19 +458,19 @@ PrefabInstance:
       objectReference: {fileID: 5149336711330251770}
     - target: {fileID: 6059164000317561551, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Size.x
-      value: 197.53326
+      value: 178.51175
       objectReference: {fileID: 0}
     - target: {fileID: 6059164000317561551, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Size.y
-      value: 568.1847
+      value: 452.3641
       objectReference: {fileID: 0}
     - target: {fileID: 6059164000317561551, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Center.x
-      value: -9.757702
+      value: -0.24705331
       objectReference: {fileID: 0}
     - target: {fileID: 6059164000317561551, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Center.y
-      value: -184.09305
+      value: -63.524303
       objectReference: {fileID: 0}
     - target: {fileID: 8968488156983476189, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_LocalPosition.y
