@@ -5465,6 +5465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardSpawnerAndColomns
       objectReference: {fileID: 0}
+    - target: {fileID: 7924229826686787347, guid: 97dd162892745204da44f2147e80469e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7924229827348340890, guid: 97dd162892745204da44f2147e80469e, type: 3}
       propertyPath: _score
       value: 

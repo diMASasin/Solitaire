@@ -27,8 +27,6 @@ public class Score : MonoBehaviour
 
         _text.text = LeanLocalization.CurrentTranslations["ќчки"].Data.ToString() + ": " + _value.ToString();
 
-        //_text.text = "—чет:" + _value.ToString();
-
         if (_value > TotalValue)
             TotalValue = _value;
     }
