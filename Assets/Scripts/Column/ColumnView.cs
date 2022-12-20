@@ -2,17 +2,19 @@ using MPUIKIT;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ColumnView : MonoBehaviour
 {
     [SerializeField] private Column _column;
-    [SerializeField] private MPImage _image;
+    [SerializeField] private Image _image;
+    [SerializeField] private Color _maxValueReachedColor;
 
     private Color _defaultColor;
 
     private void Start()
     {
-        _defaultColor = _image.OutlineColor;
+        _defaultColor = _image.color;
     }
 
     private void OnEnable()
@@ -28,8 +30,8 @@ public class ColumnView : MonoBehaviour
     private void OnMaxValueReached()
     {
         if(_column.IsMaxValueReached)
-            _image.OutlineColor = Color.yellow;
+            _image.color = _maxValueReachedColor;
         else
-            _image.OutlineColor = _defaultColor;
+            _image.color = _defaultColor;
     }
 }

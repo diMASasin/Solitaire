@@ -9,6 +9,12 @@ public class UITutorialSwitch : MonoBehaviour
     [SerializeField] private GameObject _firstPanel;
     [SerializeField] private GameObject _secondPanel;
 
+    [SerializeField] private Image _thisPoint;
+    [SerializeField] private Image _secondPoint;
+    [SerializeField] private Sprite _filledPointSprite;
+    [SerializeField] private Sprite _emptyPointSprite;
+
+
     private void OnEnable() => _thisButton.onClick.AddListener(OnButtonClick);
 
 
@@ -16,10 +22,10 @@ public class UITutorialSwitch : MonoBehaviour
 
     private void OnButtonClick()
     {
-        _thisButton.gameObject.SetActive(false);
-        _secondButton.gameObject.SetActive(true);
-
         _firstPanel.gameObject.SetActive(false);
         _secondPanel.gameObject.SetActive(true);
+
+        _thisPoint.sprite = _filledPointSprite;
+        _secondPoint.sprite = _emptyPointSprite;
     }
 }
