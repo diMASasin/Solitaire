@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Lean.Localization;
+
 
 public class Score : MonoBehaviour
 {
@@ -23,7 +25,9 @@ public class Score : MonoBehaviour
     {
         _value += Revard;
 
-        _text.text = "—чет:" + _value.ToString();
+        _text.text = LeanLocalization.CurrentTranslations["ќчки"].Data.ToString() + ": " + _value.ToString();
+
+        //_text.text = "—чет:" + _value.ToString();
 
         if (_value > TotalValue)
             TotalValue = _value;

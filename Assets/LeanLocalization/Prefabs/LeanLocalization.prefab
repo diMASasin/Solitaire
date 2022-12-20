@@ -775,10 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
-  detectLanguage: 1
+  currentLanguage: 
+  detectLanguage: 0
   defaultLanguage: 
-  saveLoad: 1
+  saveLoad: 2
   prefabs: []
 --- !u!1001 &4286936949620799744
 PrefabInstance:

@@ -5238,10 +5238,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CursorHandler
       objectReference: {fileID: 0}
-    - target: {fileID: 377850630512119451, guid: c5c96d01ac6e9794ebc44e4b7c761841, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c96d01ac6e9794ebc44e4b7c761841, type: 3}
 --- !u!1001 &1097349678422046903
@@ -5251,26 +5247,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1097349676834644641, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097349676834644641, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097349676834644641, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097349676834644641, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097349676834644641, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1097349678618480412, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -5318,10 +5294,6 @@ PrefabInstance:
     - target: {fileID: 1097349678618480413, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
       propertyPath: m_Name
       value: CursorContainer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097349678618480413, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a52c655ffcede541acd9c35652a1705, type: 3}
@@ -15279,10 +15251,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck
       objectReference: {fileID: 0}
-    - target: {fileID: 6818425922469111985, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6818425922469111998, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15367,182 +15335,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _fullDeck.Array.data[9]
-      value: 
-      objectReference: {fileID: 549812181016199718, guid: d774a04066ec9514bbc268fed7c0cb01, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _fullDeck.Array.data[22]
-      value: 
-      objectReference: {fileID: 5433427763226980042, guid: 5577ee5cebf4d5e4b80e33d912f34881, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _fullDeck.Array.data[35]
-      value: 
-      objectReference: {fileID: 2011557449579088363, guid: 33248146edfeb764b83c4b53213a8901, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _fullDeck.Array.data[48]
-      value: 
-      objectReference: {fileID: 4375477524857881349, guid: e7357db9cd9fd8b439ba44414e49623f, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[0]
-      value: 
-      objectReference: {fileID: -8149444425708205347, guid: 82c864296238773478cb699471560bfa, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[1]
-      value: 
-      objectReference: {fileID: -5522362164854079252, guid: abd5de8526056b04182d8b8e95e92579, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[2]
-      value: 
-      objectReference: {fileID: 4375477524857881349, guid: e7357db9cd9fd8b439ba44414e49623f, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[3]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[4]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[5]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[6]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[7]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[8]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[9]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[10]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[11]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _tutorialDeck.Array.data[12]
-      value: 
-      objectReference: {fileID: 3323487620305681462, guid: 95a1ec9748bba82458013758c84ca704, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.size
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[0]
-      value: 
-      objectReference: {fileID: 4375477524857881349, guid: e7357db9cd9fd8b439ba44414e49623f, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[1]
-      value: 
-      objectReference: {fileID: -4977201003590429759, guid: d576f1c194479154889607d58cc9e810, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[2]
-      value: 
-      objectReference: {fileID: 4375477524857881349, guid: e7357db9cd9fd8b439ba44414e49623f, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[3]
-      value: 
-      objectReference: {fileID: -4977201003590429759, guid: d576f1c194479154889607d58cc9e810, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[4]
-      value: 
-      objectReference: {fileID: 4375477524857881349, guid: e7357db9cd9fd8b439ba44414e49623f, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[5]
-      value: 
-      objectReference: {fileID: -4977201003590429759, guid: d576f1c194479154889607d58cc9e810, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[6]
-      value: 
-      objectReference: {fileID: -1016116318161626080, guid: 70870e3f074ea1f48ab8cd9687e20392, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[7]
-      value: 
-      objectReference: {fileID: 2011557449579088363, guid: 33248146edfeb764b83c4b53213a8901, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[8]
-      value: 
-      objectReference: {fileID: -4977201003590429759, guid: d576f1c194479154889607d58cc9e810, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[9]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[10]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[11]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[12]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[13]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[14]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[15]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[16]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[17]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[18]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[19]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[20]
-      value: 
-      objectReference: {fileID: -7084390326405166501, guid: 9590e104f490f544dbe11d7672c34cd1, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[21]
-      value: 
-      objectReference: {fileID: -7084390326405166501, guid: 9590e104f490f544dbe11d7672c34cd1, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[22]
-      value: 
-      objectReference: {fileID: -7084390326405166501, guid: 9590e104f490f544dbe11d7672c34cd1, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[23]
-      value: 
-      objectReference: {fileID: -7084390326405166501, guid: 9590e104f490f544dbe11d7672c34cd1, type: 3}
-    - target: {fileID: 6818425922469111999, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
-      propertyPath: _secondTutorialDeck.Array.data[24]
-      value: 
-      objectReference: {fileID: 7036867842151883433, guid: 4a1e77e47f16fd14abc1ea898cf230e8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 106b541fa46ae8f418b79665a0c3dd42, type: 3}
 --- !u!1001 &9074439198726984516
