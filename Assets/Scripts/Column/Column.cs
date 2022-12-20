@@ -74,11 +74,8 @@ public class Column : MonoBehaviour
             _score.AddScore();
             _sumPointColumn.ChangeColor(Color.green);
 
-            if (card.ValueName != CardValues.Joker)
-            {
-                IsMaxValueReached = true;
-                MaxValueReachedChanged?.Invoke();
-            }
+            IsMaxValueReached = true;
+            MaxValueReachedChanged?.Invoke();
 
             var tween = DOTween.Sequence();
             tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);
