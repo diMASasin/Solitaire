@@ -22,9 +22,6 @@ public class UITutorialSwitch : MonoBehaviour
 
     private void OnButtonClick()
     {
-        _thisButton.gameObject.SetActive(false);
-        _secondButton.gameObject.SetActive(true);
-
         _firstPanel.gameObject.SetActive(false);
         _secondPanel.gameObject.SetActive(true);
 
