@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDie
       objectReference: {fileID: 0}
+    - target: {fileID: 4294329217508800455, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 71f9f2483e937694293077c91fcf9b3c, type: 3}
     - target: {fileID: 4622411347271438782, guid: 2b1af5d93409f9d41bdd2d4c1cd19333, type: 3}
       propertyPath: m_Name
       value: LittleFrame
