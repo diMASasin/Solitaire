@@ -19,7 +19,7 @@ public class Appearance21 : MonoBehaviour
     {
         foreach (var column in _columns)
         {
-            column.MaxValueReached += OnMaxValueReachedChanged;
+            column.MaxValueReachedChanged += OnMaxValueReachedChanged;
         }
     }
 
@@ -27,13 +27,15 @@ public class Appearance21 : MonoBehaviour
     {
         foreach (var column in _columns)
         {
-            column.MaxValueReached -= OnMaxValueReachedChanged;
+            column.MaxValueReachedChanged -= OnMaxValueReachedChanged;
         }
     }
 
-    private void OnMaxValueReachedChanged()
+    private void OnMaxValueReachedChanged(bool value)
     {
-        Debug.Log("OnMaxValueReachedChanged"); //Почему это вызывается при клике на джокер баттон?
+        if (!value)
+            return;
+
         ShowImage();
         _glow.Play();
     }

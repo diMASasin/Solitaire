@@ -21,6 +21,11 @@ public class Score : MonoBehaviour
 
     private const int Revard = 150;
 
+    private void Start()
+    {
+        _text.text = LeanLocalization.CurrentTranslations["Очки"].Data.ToString() + ": " + _value.ToString();
+    }
+
     public void AddScore() 
     {
         _value += Revard;

@@ -23,8 +23,7 @@ public class Column : MonoBehaviour
 
     public bool IsMaxValueReached { get; private set; } = false;
 
-    public event Action MaxValueReachedChanged;
-    public event Action MaxValueReached;
+    public event Action<bool> MaxValueReachedChanged;
     public event Action<int> PointsChanged;
 
     private void Start() => PointsChanged?.Invoke(_currentValue);
@@ -74,8 +73,7 @@ public class Column : MonoBehaviour
             _sumPointColumn.ChangeColor(Color.green);
 
             IsMaxValueReached = true;
-            MaxValueReachedChanged?.Invoke();
-            MaxValueReached?.Invoke();
+            MaxValueReachedChanged?.Invoke(IsMaxValueReached);
 
             var tween = DOTween.Sequence();
             tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);
@@ -94,7 +92,7 @@ public class Column : MonoBehaviour
     public void ResetMaxValueReached()
     {
         IsMaxValueReached = false;
-        MaxValueReachedChanged?.Invoke();
+        MaxValueReachedChanged?.Invoke(IsMaxValueReached);
     }
 
     private void TryChangeAcePoints()

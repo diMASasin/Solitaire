@@ -16,6 +16,10 @@ public class Deck : MonoBehaviour
     if (_currentDeck.Count == 0)
       return false;
 
+        //card = _secondTutorialDeck[indexCard];
+        //indexCard++;
+
+        // Игровая дека
         card = _currentDeck[Random.Range(0, _currentDeck.Count)];
         _currentDeck.Remove(card);
 

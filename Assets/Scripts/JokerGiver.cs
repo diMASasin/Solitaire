@@ -43,11 +43,14 @@ public class JokerGiver : MonoBehaviour
         _cardSpawner.MoveSpawnedCardsBack();
     }
 
-    private void OnMaxValueReachedChanged()
+    private void OnMaxValueReachedChanged(bool value)
     {
         foreach (var column in _columns)
             if (!column.IsMaxValueReached)
                 return;
+
+        if (_jokerButton.gameObject.activeSelf)
+            return;
 
         _jokerButton.gameObject.SetActive(true);
 
