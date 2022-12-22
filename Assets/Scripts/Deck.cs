@@ -8,14 +8,6 @@ public class Deck : MonoBehaviour
 
   private List<Card> _currentDeck;
 
-    [SerializeField] private List<Card> _tutorialDeck;
-    [SerializeField] private List<Card> _secondTutorialDeck;
-
-    //Тутор
-    int indexCard = 0;
-    //
-
-
     private void Awake() => RefreshDeck();
 
   public bool TryGetRandomCard(out Card card)
@@ -24,14 +16,9 @@ public class Deck : MonoBehaviour
     if (_currentDeck.Count == 0)
       return false;
 
-        //Туториальная дека
-        card = _tutorialDeck[indexCard];
-        indexCard++;
+        card = _currentDeck[Random.Range(0, _currentDeck.Count)];
+        _currentDeck.Remove(card);
 
-        // Игровая дека
-        //card = _currentDeck[Random.Range(0, _currentDeck.Count)];
-        //_currentDeck.Remove(card);
-        //
 
         if (_currentDeck.Count == 0)
       RefreshDeck();
