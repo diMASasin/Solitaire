@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FirstAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e52eaedc4076c844e8c5644433c6ba2c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: daa30511bd0314c4fb50c6e06c18bc7e, type: 3}
+  - {fileID: 21300000, guid: 2f0c16d169cbe9846840c8154a06485c, type: 3}
+  - {fileID: 21300000, guid: de24b5e15c2509a4bb21bf906073020e, type: 3}
+  - {fileID: 21300000, guid: 397e7292d4e031544b6c7f907dceaa36, type: 3}
+  - {fileID: 21300000, guid: c9a48ba2db1993f41a022c2ffd28a286, type: 3}
+  - {fileID: 21300000, guid: 9e4b46c3f03914c4a86dde5ade8b2272, type: 3}
+  - {fileID: 21300000, guid: 40e69d9501d95b64fa5c1a84c010de80, type: 3}
+  - {fileID: 21300000, guid: f0de19b5e6d8f084ba0b7ec6b31b35ec, type: 3}
+  - {fileID: 21300000, guid: 2d1d8a2873efade46960df272550e0ec, type: 3}
+  - {fileID: 21300000, guid: 6e76523a16ea7204b85345eaa383fadc, type: 3}
+  - {fileID: 21300000, guid: 0c98efcfcc229bf4098b44d11d2d12b9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - IMG_0542_051
+  - IMG_0542_049
+  - IMG_0542_050
+  - IMG_0542_043
+  - IMG_0542_042
+  - IMG_0542_045
+  - IMG_0542_052
+  - IMG_0542_046
+  - IMG_0542_048
+  - IMG_0542_044
+  - IMG_0542_047
+  m_RenderDataMap: {}
+  m_Tag: FirstAtlas
+  m_IsVariant: 0

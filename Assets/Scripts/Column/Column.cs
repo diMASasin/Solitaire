@@ -24,6 +24,7 @@ public class Column : MonoBehaviour
     public bool IsMaxValueReached { get; private set; } = false;
 
     public event Action MaxValueReachedChanged;
+    public event Action MaxValueReached;
     public event Action<int> PointsChanged;
 
     private void Start() => PointsChanged?.Invoke(_currentValue);
@@ -74,6 +75,7 @@ public class Column : MonoBehaviour
 
             IsMaxValueReached = true;
             MaxValueReachedChanged?.Invoke();
+            MaxValueReached?.Invoke();
 
             var tween = DOTween.Sequence();
             tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);

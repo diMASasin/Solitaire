@@ -13,13 +13,13 @@ public class Appearance21 : MonoBehaviour
     private Vector3 _startSize = new(0.8f, 0.8f, 0.8f);
     private Vector3 _targetSize = new(1f, 1f, 1f);
 
-    private Color _targetColor = new(1, 1,  1, 1);
+    private Color _targetColor = new(1, 1, 1, 1);
 
     private void OnEnable()
     {
         foreach (var column in _columns)
         {
-            column.MaxValueReachedChanged += OnMaxValueReachedChanged;
+            column.MaxValueReached += OnMaxValueReachedChanged;
         }
     }
 
@@ -27,12 +27,13 @@ public class Appearance21 : MonoBehaviour
     {
         foreach (var column in _columns)
         {
-            column.MaxValueReachedChanged -= OnMaxValueReachedChanged;
+            column.MaxValueReached -= OnMaxValueReachedChanged;
         }
     }
 
     private void OnMaxValueReachedChanged()
     {
+        Debug.Log("OnMaxValueReachedChanged"); //Почему это вызывается при клике на джокер баттон?
         ShowImage();
         _glow.Play();
     }
