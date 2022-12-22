@@ -31,8 +31,11 @@ public class Appearance21 : MonoBehaviour
         }
     }
 
-    private void OnMaxValueReachedChanged()
+    private void OnMaxValueReachedChanged(bool value)
     {
+        if (!value)
+            return;
+
         ShowImage();
         _glow.Play();
     }

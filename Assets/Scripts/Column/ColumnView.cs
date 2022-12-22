@@ -27,9 +27,9 @@ public class ColumnView : MonoBehaviour
         _column.MaxValueReachedChanged -= OnMaxValueReached;
     }
 
-    private void OnMaxValueReached()
+    private void OnMaxValueReached(bool value)
     {
-        if(_column.IsMaxValueReached)
+        if(value)
             _image.color = _maxValueReachedColor;
         else
             _image.color = _defaultColor;

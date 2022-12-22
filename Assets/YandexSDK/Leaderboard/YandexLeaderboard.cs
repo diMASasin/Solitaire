@@ -23,6 +23,10 @@ public class YandexLeaderboard : MonoBehaviour
 
     public void Show() 
     {
+#if UNITY_EDITOR
+        return;
+#endif
+
         if (PlayerAccount.IsAuthorized == false)
         {
             _autorizePanel.gameObject.SetActive(true);
@@ -58,9 +62,6 @@ public class YandexLeaderboard : MonoBehaviour
                 playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString());
 
                 rankingCount++;
-
-                if (rankingCount == _rankingMaxCount)
-                    break;
             }
         });
     }

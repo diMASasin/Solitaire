@@ -25,14 +25,14 @@ public class Deck : MonoBehaviour
       return false;
 
         //Туториальная дека
-        card = _secondTutorialDeck[indexCard];
-        indexCard++;
+        //card = _secondTutorialDeck[indexCard];
+        //indexCard++;
 
 
         // Игровая дека
-        //card = _currentDeck[Random.Range(0, _currentDeck.Count)];
-        //_currentDeck.Remove(card);
-        //
+        card = _currentDeck[Random.Range(0, _currentDeck.Count)];
+        _currentDeck.Remove(card);
+
 
         if (_currentDeck.Count == 0)
       RefreshDeck();
