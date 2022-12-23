@@ -19,7 +19,12 @@ public class YandexLeaderboard : MonoBehaviour
 
     private const string LeaderboardName = "Leaderboard";
 
-    public void SetLeaderboardScore(int value) => Leaderboard.SetScore(LeaderboardName, value);
+    public void SetLeaderboardScore(int value)
+    {
+#if !UNITY_EDITOR
+        Leaderboard.SetScore(LeaderboardName, value);
+#endif
+    }
 
     public void Show() 
     {

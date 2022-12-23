@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,11 +18,14 @@ public class HealthBar : MonoBehaviour
     
     private const int MaxIndex = 2;
 
+    public event Action HeartRemoved;
+
     private void Start() => _index = 0;
 
     public void RemoveHeart()
     {
         _hearts[_index].MoveToStartPosition();
+        HeartRemoved?.Invoke();
 
         if (_rewarnPanelShown == true) 
         {
@@ -42,6 +46,7 @@ public class HealthBar : MonoBehaviour
             _fakeCard.gameObject.SetActive(true);
             _restartPanel.Init(this, _level);
             _leaderboard.SetLeaderboardScore(_score.TotalValue); 
+            _level.Lose();
         }
 
         _index++;

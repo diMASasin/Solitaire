@@ -16,8 +16,15 @@ public class CardSpawner : MonoBehaviour
 
     public Card ShowingCard => _showingCard;
 
+    public event Action DealCardsStared;
+    public event Action DealCardsEnd;
+    public event Action MoveCardStarted;
+    public event Action CardDroped;
+
     private IEnumerator Start()
     {
+        DealCardsStared?.Invoke();
+
         for (int i = 0; i < _maxCards; i++)
         {
             SpawnCard();
@@ -27,6 +34,7 @@ public class CardSpawner : MonoBehaviour
         }
         yield return _cardMover.Tween?.WaitForCompletion();
 
+        DealCardsEnd?.Invoke();
         ShowFirstCard();
         SpawnCard();
     }
@@ -43,6 +51,7 @@ public class CardSpawner : MonoBehaviour
     {
         _showingCard = _spawnedCards[0];
         _cardMover.MoveCardFromDeck(_showingCard);
+        MoveCardStarted?.Invoke();
         _cardMover.Tween.OnComplete(() => StartCoroutine(DelayedRotateCard()));
     }
 
@@ -76,6 +85,7 @@ public class CardSpawner : MonoBehaviour
         {
             _cardMover.MoveCards(_spawnedCards);
             _showingCard.Dragger.SetCanDrag(true);
+            CardDroped?.Invoke();
         });
         _spawnedCards.Remove(_showingCard);
     }

@@ -10,6 +10,7 @@ public class RestartPanel : MonoBehaviour
     [SerializeField] private Button _rewardButton;
     [SerializeField] private Level _level;
     [SerializeField] private Image _circle;
+    [SerializeField] private YandexAd _yandexAd;
 
     private HealthBar _healthBar;
 
@@ -18,10 +19,9 @@ public class RestartPanel : MonoBehaviour
     public void Show()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
-        OnErrorCallback();
+        OnRewardedCallback();
 #endif
-        //вырубить музыку
-        VideoAd.Show(OnOpenCallback, OnCloseCallback, OnErrorCallback);
+        VideoAd.Show(OnOpenCallback, OnRewardedCallback, OnCloseCallback);
     }
 
     public void RestartLevel() => _level.Restart();
@@ -32,16 +32,20 @@ public class RestartPanel : MonoBehaviour
         _level = level;
     }
 
-    private void OnOpenCallback() => _healthBar.AddHeart();
+    private void OnOpenCallback()
+    {
+        _yandexAd.StopGame();
+    }
 
     private void OnCloseCallback()
     {
-        _fakeCard.gameObject.SetActive(false);
+        _yandexAd.StartGame();
 
+        _fakeCard.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 
-    private void OnErrorCallback()
+    private void OnRewardedCallback()
     {
         _healthBar.AddHeart();
         _fakeCard.gameObject.SetActive(false);

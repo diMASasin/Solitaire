@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class JokerGiver : MonoBehaviour
     [SerializeField] private CardSpawner _cardSpawner;
     [SerializeField] private ParticleSystem[] _columnsEffect;
     [SerializeField] private ParticleSystem _jokerEffect;
+
+    public event Action JokerGave;
+    public event Action MaxValueReached;
 
     private void OnValidate()
     {
@@ -45,13 +49,25 @@ public class JokerGiver : MonoBehaviour
 
     private void OnMaxValueReachedChanged(bool value)
     {
-        foreach (var column in _columns)
-            if (!column.IsMaxValueReached)
-                return;
-
-        if (_jokerButton.gameObject.activeSelf)
+        if (!value)
             return;
 
+        foreach (var column in _columns)
+        {
+            if (!column.IsMaxValueReached)
+            {
+                MaxValueReached?.Invoke();
+                return;
+            }
+        }
+
+        if (_jokerButton.gameObject.activeSelf)
+        {
+            MaxValueReached?.Invoke();
+            return;
+        }
+
+        JokerGave?.Invoke();
         _jokerButton.gameObject.SetActive(true);
 
         _jokerEffect.Play();
