@@ -4,17 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-  public event UnityAction LevelStarted;
-  public event UnityAction LevelRestarted;
-  public event UnityAction LevelLost;
+    [SerializeField] private YandexAd _yandexAd;
 
-  private void Start() => LevelStarted?.Invoke();
+    public event UnityAction LevelStarted;
+    public event UnityAction LevelRestarted;
+    public event UnityAction LevelLost;
 
-  public void Restart()
-  {
-    LevelRestarted?.Invoke();
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-  }
+    private void Start() => LevelStarted?.Invoke();
 
-  public void Lose() => LevelLost?.Invoke();
+    public void Restart()
+    {
+        LevelRestarted?.Invoke();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Lose()
+    {
+        _yandexAd.ShowBilboardAd();
+        LevelLost?.Invoke();
+    }
 }

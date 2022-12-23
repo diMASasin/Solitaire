@@ -203,14 +203,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7924229826686787346}
     m_Modifications:
-    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
-      propertyPath: _maxValueReachedColor.b
-      value: 0.09411766
-      objectReference: {fileID: 0}
-    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
-      propertyPath: _maxValueReachedColor.g
-      value: 0.7568628
-      objectReference: {fileID: 0}
     - target: {fileID: 5146208519424720510, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -430,6 +422,18 @@ PrefabInstance:
       propertyPath: _column
       value: 
       objectReference: {fileID: 4174551553790099894}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.b
+      value: 0.023529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.g
+      value: 0.98823535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.r
+      value: 0.9725491
+      objectReference: {fileID: 0}
     - target: {fileID: 5146208519424720510, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -571,6 +575,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7924229826686787346}
     m_Modifications:
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.b
+      value: 0.023529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.g
+      value: 0.98823535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.r
+      value: 0.9725491
+      objectReference: {fileID: 0}
     - target: {fileID: 5146208519424720510, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -673,6 +689,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7924229826686787346}
     m_Modifications:
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.b
+      value: 0.023529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.g
+      value: 0.98823535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285007675559497738, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
+      propertyPath: _maxValueReachedColor.r
+      value: 0.9725491
+      objectReference: {fileID: 0}
     - target: {fileID: 6059164000317561544, guid: fe1f0e9d06557a6469c036e447328efb, type: 3}
       propertyPath: m_Name
       value: Column 3

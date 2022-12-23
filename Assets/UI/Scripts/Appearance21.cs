@@ -8,7 +8,7 @@ public class Appearance21 : MonoBehaviour
     [SerializeField] private ParticleSystem _glow;
     [SerializeField] private Image _image;
     [SerializeField] private Image _glowImage;
-    [SerializeField] private List<Column> _columns;
+    [SerializeField] private Column _column;
 
     private Vector3 _startSize = new(0.8f, 0.8f, 0.8f);
     private Vector3 _targetSize = new(1f, 1f, 1f);
@@ -17,18 +17,12 @@ public class Appearance21 : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach (var column in _columns)
-        {
-            column.MaxValueReachedChanged += OnMaxValueReachedChanged;
-        }
+        _column.MaxValueReachedChanged += OnMaxValueReachedChanged;
     }
 
     private void OnDisable()
     {
-        foreach (var column in _columns)
-        {
-            column.MaxValueReachedChanged -= OnMaxValueReachedChanged;
-        }
+        _column.MaxValueReachedChanged -= OnMaxValueReachedChanged;
     }
 
     private void OnMaxValueReachedChanged(bool value)

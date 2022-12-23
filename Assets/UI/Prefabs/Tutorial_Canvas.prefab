@@ -300,6 +300,156 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2716725673074644460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4305414657667609959}
+  - component: {fileID: 5331843844762295388}
+  - component: {fileID: 8659636481372132752}
+  - component: {fileID: 8749858554017318066}
+  m_Layer: 5
+  m_Name: Header
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4305414657667609959
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716725673074644460}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000114, y: 1.0000114, z: 1.0000114}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3833886477766691380}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 436.00012}
+  m_SizeDelta: {x: 415.1, y: 103.78}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5331843844762295388
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716725673074644460}
+  m_CullTransparentMesh: 1
+--- !u!114 &8659636481372132752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716725673074644460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Joker
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
+  m_sharedMaterial: {fileID: 4570219559510561554, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 110.55
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 111.3
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8749858554017318066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716725673074644460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Joker
+  FallbackText: "\u041F\u0440\u0430\u0432\u0438\u043B\u0430"
 --- !u!1 &3833886476884330306
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,23 +517,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \u0421\u043E\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u0437 \u043A\u0430\u0440\u0442
-    21 \u043E\u0447\u043A\u043E \u0432 \u043B\u044E\u0431\u043E\u0439 \u0438\u0437
-    \u0434\u043E\u0440\u043E\u0436\u0435\u043A. \u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435
-    \u043A\u0430\u0440\u0442 \u0432 \u0434\u043E\u0440\u043E\u0436\u043A\u0430\u0445
-    \u0441\u0443\u043C\u043C\u0438\u0440\u0443\u0435\u0442\u0441\u044F. \u0415\u0441\u043B\u0438
-    \u043D\u0430\u0431\u0440\u0430\u043B\u0438 \u0431\u043E\u043B\u044C\u0448\u0435
-    21 - \u0442\u0435\u0440\u044F\u0435\u0442\u0435 \u0436\u0438\u0437\u043D\u044C.\n\n
-    \u041A\u0430\u0440\u0442\u044B \u043B\u044E\u0431\u044B\u0445 \u043C\u0430\u0441\u0442\u0435\u0439
-    \u0441 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F\u043C\u0438 2,3,4,5,6,7,8,9,10
-    \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0432\u0442\u0432\u0443\u044E\u0442
-    \u0446\u0438\u0444\u0440\u0430\u043C. \u0412\u0430\u043B\u0435\u0442, \u0414\u0430\u043C\u0430,
-    \u041A\u043E\u0440\u043E\u043B\u044C = 10; \u0422\u0443\u0437 = 1 \u0438\u043B\u0438
-    11; \u0414\u0436\u043E\u043A\u0435\u0440 \u0441\u0440\u0430\u0437\u0443 \u0441\u043E\u0431\u0438\u0440\u0430\u0435\u0442
-    21\n \n \u041D\u0430\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
-    \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043E\u0447\u043A\u043E\u0432
-    \u0438 \u0437\u0430\u0439\u043C\u0438\u0442\u0435 1 \u043C\u0435\u0441\u0442\u043E
-    \u0432 \u0442\u043E\u043F\u0435 \u042F\u043D\u0434\u0435\u043A\u0441.\u0418\u0433\u0440\u044B"
+  m_text: "Collect 21 points from the cards in any of the tracks. The value of the
+    cards in the tracks is summed up. If you score more than 21, you lose a life.\n\nCards
+    of any suit with values 2,3,4,5,6,7,8,9,10 correspond to numbers. Jack, Queen,
+    King = 10; Ace = 1 or 11; Joker immediately collects 21\n \n Get the maximum
+    number of points and take 1st place in the top of Yandex.Games"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
   m_sharedMaterial: {fileID: 4570219559510561554, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
@@ -513,7 +651,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3833886478206191508}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1067,7 +1205,7 @@ GameObject:
   - component: {fileID: 3833886477481273022}
   - component: {fileID: 774312296}
   m_Layer: 5
-  m_Name: Help_Text
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1080,13 +1218,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833886477481273016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3833886478206191508}
-  m_RootOrder: 0
+  m_Father: {fileID: 3833886477765332261}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1121,7 +1259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u0430\u0432\u0438\u043B\u0430"
+  m_text: Rules
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
   m_sharedMaterial: {fileID: 4570219559510561554, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
@@ -1148,7 +1286,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 95.1
+  m_fontSize: 110.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1236,6 +1374,7 @@ RectTransform:
   m_Children:
   - {fileID: 3833886478015795271}
   - {fileID: 3833886476884330307}
+  - {fileID: 3833886477481273017}
   m_Father: {fileID: 3833886477239840812}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1314,6 +1453,7 @@ RectTransform:
   m_Children:
   - {fileID: 7412841543396175894}
   - {fileID: 6544627772113356098}
+  - {fileID: 4305414657667609959}
   m_Father: {fileID: 3833886477239840812}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1495,7 +1635,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3833886477481273017}
   - {fileID: 3833886476941382869}
   m_Father: {fileID: 3833886477239840812}
   m_RootOrder: 0
