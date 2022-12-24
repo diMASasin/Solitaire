@@ -6,6 +6,7 @@ public class Card : MonoBehaviour
     [SerializeField] private CardValues _valueName;
     [SerializeField] private CardSuits _suit;
     [SerializeField] private int _value;
+
     [SerializeField] private CardDrag _dragger;
 
     public CardValues ValueName => _valueName;
@@ -20,7 +21,7 @@ public class Card : MonoBehaviour
         else
             _value = 10;
 
-        GetComponent<CardDrag>();
+        _dragger = GetComponent<CardDrag>();
     }
 
     public void Move(Vector3 position) => _dragger.MoveToPoint(position);
