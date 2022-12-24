@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
+    [SerializeField] private Rigidbody _rigidbody;
+
     private Vector3 _startRotation = new Vector3(90, 0, 0);
     private Tween _tween;
 
-    private void Awake()
+    private void OnValidate()
     {
         _rigidbody = GetComponentInChildren<Rigidbody>();
+    }
+
+    private void Awake()
+    {
         _startRotation = _rigidbody.rotation.eulerAngles;
     }
 

@@ -5,9 +5,9 @@ using DG.Tweening;
 [RequireComponent(typeof(BoxCollider))]
 public class CardDrag : MonoBehaviour
 {
+    [SerializeField] private Card _card;
     private Vector3 _offset;
     private Vector3 _startPosition;
-    private Card _card;
 
     private float _mousePointZ;
 
@@ -19,7 +19,7 @@ public class CardDrag : MonoBehaviour
     public event Action CardTook;
     public event Action CardDroped;
 
-    private void Start()
+    private void OnValidate()
     {
         _card = GetComponent<Card>();
     }

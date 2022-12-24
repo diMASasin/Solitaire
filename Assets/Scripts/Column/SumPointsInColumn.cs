@@ -7,17 +7,21 @@ using System;
 public class SumPointsInColumn : MonoBehaviour
 {
     [SerializeField] private Column _column;
+    [SerializeField] private TextMeshProUGUI _text;
 
-    private TextMeshProUGUI _text;
     private Sequence _tween;
 
     private float _delayColorChange = 0.5f;
 
     public float DelayColorChange => _delayColorChange;
 
-    private void Awake()
+    private void OnValidate()
     {
         _text = GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Awake()
+    {
         _tween = DOTween.Sequence();
     }
 

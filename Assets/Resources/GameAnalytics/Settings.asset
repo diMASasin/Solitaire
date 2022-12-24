@@ -25,22 +25,16 @@ MonoBehaviour:
   UserMessagesSubmitted: 0
   UserMessagesFailed: 0
   CustomArea: 
-  gameKey:
-  - e189c507a2af7fedc71d877243bd1cc2
-  secretKey:
-  - 011f7e776633c28cddcbe587edbbbe6109514986
-  Build:
-  - 0.1
-  SelectedPlatformOrganization:
-  - Technomaniac games
-  SelectedPlatformStudio:
-  - Technomaniac games
-  SelectedPlatformGame:
-  - Solitaire
-  SelectedPlatformGameID: 358a0300
-  SelectedOrganization: 01000000
-  SelectedStudio: 01000000
-  SelectedGame: 03000000
+  gameKey: []
+  secretKey: []
+  Build: []
+  SelectedPlatformOrganization: []
+  SelectedPlatformStudio: []
+  SelectedPlatformGame: []
+  SelectedPlatformGameID: 
+  SelectedOrganization: 
+  SelectedStudio: 
+  SelectedGame: 
   NewVersion: 
   Changes: 
   SignUpOpen: 0
@@ -62,8 +56,8 @@ MonoBehaviour:
   ResourceItemTypes: []
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
-  Platforms: 11000000
-  CurrentInspectorState: 3
+  Platforms: 
+  CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}
@@ -90,7 +84,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 01
+  PlatformFoldOut: 
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0

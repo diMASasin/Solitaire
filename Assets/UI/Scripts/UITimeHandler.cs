@@ -18,7 +18,10 @@ public class UITimeHandler : MonoBehaviour
     private const float Step = 0.2f;
     private const int OneSecond = 1;
 
-    private void Start() => _circle = GetComponent<Image>();
+    private void OnValidate()
+    {
+        _circle = GetComponent<Image>();
+    }
 
     private IEnumerator ChangeTime(Action action)
     {
