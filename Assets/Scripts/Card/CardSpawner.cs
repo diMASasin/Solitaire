@@ -13,6 +13,7 @@ public class CardSpawner : MonoBehaviour
 
     private List<Card> _spawnedCards = new List<Card>();
     private Card _showingCard;
+    private bool _cardsDealed = false;
 
     public Card ShowingCard => _showingCard;
 
@@ -21,22 +22,13 @@ public class CardSpawner : MonoBehaviour
     public event Action MoveCardStarted;
     public event Action CardDroped;
 
-    private IEnumerator Start()
+    public void StartDealCards()
     {
-        DealCardsStared?.Invoke();
+        if (_cardsDealed)
+            return;
 
-        for (int i = 0; i < _maxCards; i++)
-        {
-            SpawnCard();
-            _cardMover.MoveCards(_spawnedCards);
-            yield return _cardMover.Tween?.WaitForCompletion();
-            yield return new WaitForSeconds(_cardMover.MoveCardDurationDelay);
-        }
-        yield return _cardMover.Tween?.WaitForCompletion();
-
-        DealCardsEnd?.Invoke();
-        ShowFirstCard();
-        SpawnCard();
+        _cardsDealed = true;
+        StartCoroutine(DealCards());
     }
 
     public void DestroyCard()
@@ -75,6 +67,24 @@ public class CardSpawner : MonoBehaviour
     public void MoveSpawnedCardsBack()
     {
         _cardMover.MoveCardsBack(_spawnedCards);
+    }
+
+    private IEnumerator DealCards()
+    {
+        DealCardsStared?.Invoke();
+
+        for (int i = 0; i < _maxCards; i++)
+        {
+            SpawnCard();
+            _cardMover.MoveCards(_spawnedCards);
+            yield return _cardMover.Tween?.WaitForCompletion();
+            yield return new WaitForSeconds(_cardMover.MoveCardDurationDelay);
+        }
+        yield return _cardMover.Tween?.WaitForCompletion();
+
+        DealCardsEnd?.Invoke();
+        ShowFirstCard();
+        SpawnCard();
     }
 
     private IEnumerator DelayedRotateCard()

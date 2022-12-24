@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstGameTutorial : MonoBehaviour
 {
     [SerializeField] private GameObject _tutorial;
+    [SerializeField] private CardSpawner _cardSpawner;
 
     private const string TUTORIAL_SHOWED = nameof(TUTORIAL_SHOWED);
     private bool _tutorialShowed
@@ -19,6 +20,10 @@ public class FirstGameTutorial : MonoBehaviour
         {
             _tutorial.SetActive(true);
             _tutorialShowed = true;
+        }
+        else
+        {
+            _cardSpawner.StartDealCards();
         }
     }
 }

@@ -14,17 +14,8 @@ public class Level : MonoBehaviour
 
     public void Restart()
     {
-#if !UNITY_EDITOR
-        _yandexAd.ShowBilboardAd(() => _yandexAd.StopGame(), (value) =>
-        {
-            _yandexAd.StartGame();
-            LevelRestarted?.Invoke();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        });
-#else
         LevelRestarted?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-#endif
     }
 
     public void Lose()

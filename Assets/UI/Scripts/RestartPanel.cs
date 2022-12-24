@@ -13,6 +13,7 @@ public class RestartPanel : MonoBehaviour
     [SerializeField] private YandexAd _yandexAd;
 
     private HealthBar _healthBar;
+    private bool _adShowing = false;
 
     private void Start() => _timeHandler.StartTimer(OnClose);
 
@@ -34,6 +35,7 @@ public class RestartPanel : MonoBehaviour
 
     private void OnOpenCallback()
     {
+        _adShowing = true;
         _yandexAd.StopGame();
     }
 
@@ -43,6 +45,8 @@ public class RestartPanel : MonoBehaviour
 
         _fakeCard.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        _adShowing = false;
+        OnClose();
     }
 
     private void OnRewardedCallback()
@@ -55,6 +59,9 @@ public class RestartPanel : MonoBehaviour
 
     private void OnClose()
     {
+        if (_adShowing)
+            return;
+
         _fakeCard.gameObject.SetActive(false);
 
         if (_rewardButton != null)

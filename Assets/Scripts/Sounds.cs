@@ -25,7 +25,7 @@ public class Sounds : MonoBehaviour
     private const string IS_SOUNDS_ON = nameof(IS_SOUNDS_ON);
     private bool _isSoundsOn
     {
-        get { return PlayerPrefs.GetInt(IS_SOUNDS_ON, 0) == 1; }
+        get { return PlayerPrefs.GetInt(IS_SOUNDS_ON, 1) == 1; }
         set { PlayerPrefs.SetInt(IS_SOUNDS_ON, value ? 1 : 0); }
     }
     private float _backgroundMusicVolume;
@@ -33,8 +33,7 @@ public class Sounds : MonoBehaviour
     private void Start()
     {
         _backgroundMusicVolume = _backgroundMusic.volume;
-        SwitchSounds(_isSoundsOn);
-        ChangeSprite();
+        Load();
     }
 
     private void OnEnable()
@@ -65,6 +64,12 @@ public class Sounds : MonoBehaviour
     public void OnSwitchSoundsButtonClicked()
     {
         _isSoundsOn = !_isSoundsOn;
+        SwitchSounds(_isSoundsOn);
+        ChangeSprite();
+    }
+
+    public void Load()
+    {
         SwitchSounds(_isSoundsOn);
         ChangeSprite();
     }
@@ -122,7 +127,9 @@ public class Sounds : MonoBehaviour
 
     private void OnInBackgroundChangeEvent(bool value)
     {
-        if (_isSoundsOn)
-            SwitchSounds(value);
+        if (value)
+            SwitchSounds(false);
+        else
+            Load();
     }
 }

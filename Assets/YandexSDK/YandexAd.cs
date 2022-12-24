@@ -5,8 +5,15 @@ using System;
 public class YandexAd : MonoBehaviour
 {
     [SerializeField] Sounds _sounds;
+    [SerializeField] TriesCounter _triesCounter;
 
-    private void Start() => Authorize();
+    private void Start()
+    {
+        if (_triesCounter.Tries > 1)
+            ShowBilboardAd(StopGame, StartGame);
+
+        Authorize();
+    }
 
     private void Authorize()
     {
@@ -19,9 +26,11 @@ public class YandexAd : MonoBehaviour
     {
 #if !UNITY_EDITOR
         InterstitialAd.Show(OnOpenCallback, OnCloseCallback);
+#else
+        Debug.Log("InterstitialShowed");
 #endif
     }
-    public void ShowVideoAd(Action OnRewarded) => VideoAd.Show(OnVideoOpenCallback, OnRewarded, OnVideoCloseCallback);
+    public void ShowVideoAd(Action OnRewarded) => VideoAd.Show(StopGame, OnRewarded, StartGame);
 
     public void StopGame()
     {
@@ -31,16 +40,11 @@ public class YandexAd : MonoBehaviour
 
     public void StartGame()
     {
-        _sounds.SwitchSounds(true);
+        _sounds.Load();
         Time.timeScale = 1;
     }
 
-    private void OnVideoOpenCallback()
-    {
-        StopGame();
-    }
-
-    private void OnVideoCloseCallback()
+    private void StartGame(bool _)
     {
         StartGame();
     }
