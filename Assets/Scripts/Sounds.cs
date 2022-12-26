@@ -17,7 +17,6 @@ public class Sounds : MonoBehaviour
     [SerializeField] private AudioSource _dealCardsSound;
     [SerializeField] private AudioSource _moveCardSound;
     [SerializeField] private AudioSource _dropCardSound;
-    [SerializeField] private AudioSource _backgroundMusic;
     [SerializeField] private Image _soundImage;
     [SerializeField] private Sprite _soundOnSprite;
     [SerializeField] private Sprite _soundOffSprite;
@@ -28,11 +27,9 @@ public class Sounds : MonoBehaviour
         get { return PlayerPrefs.GetInt(IS_SOUNDS_ON, 1) == 1; }
         set { PlayerPrefs.SetInt(IS_SOUNDS_ON, value ? 1 : 0); }
     }
-    private float _backgroundMusicVolume;
 
     private void Start()
     {
-        _backgroundMusicVolume = _backgroundMusic.volume;
         Load();
     }
 
@@ -77,7 +74,7 @@ public class Sounds : MonoBehaviour
     public void SwitchSounds(bool value)
     {
         AudioListener.pause = !value;
-        AudioListener.volume = value ? _backgroundMusicVolume : 0;
+        AudioListener.volume = value ? 1 : 0;
     }
 
     private void ChangeSprite()

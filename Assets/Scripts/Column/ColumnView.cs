@@ -8,6 +8,7 @@ public class ColumnView : MonoBehaviour
     [SerializeField] private Column _column;
     [SerializeField] private Image _image;
     [SerializeField] private Color _maxValueReachedColor;
+    [SerializeField] private ParticleSystem[] _21effect;
 
     private Color _defaultColor;
 
@@ -32,5 +33,8 @@ public class ColumnView : MonoBehaviour
             _image.color = _maxValueReachedColor;
         else
             _image.color = _defaultColor;
+
+        foreach (var effect in _21effect)
+            effect.Play();
     }
 }

@@ -4,6 +4,8 @@ using System;
 using System.Collections;
 using Agava.YandexGames;
 using Agava.YandexGames.Samples;
+using Lean.Localization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,15 +16,37 @@ public class YandexLeaderboard : MonoBehaviour
     [SerializeField] private PlayerRankingView _playerRank;
     [SerializeField] private Transform _container;
     [SerializeField] private AutorizePanel _autorizePanel;
+    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _restartButton;
+    [SerializeField] private LeanToken _record;
 
     private int _rankingMaxCount = 5;
+    private LeaderboardEntryResponse _playerEntry = null;
 
     private const string LeaderboardName = "Leaderboard";
+
+    public bool HasRecord { get; private set; } = false;
+
+    private void Awake()
+    {
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+        {
+            _playerEntry = result;
+            _record.Value = _playerEntry.score.ToString();
+        });
+    }
 
     public void SetLeaderboardScore(int value)
     {
 #if !UNITY_EDITOR
-        Leaderboard.SetScore(LeaderboardName, value);
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+        {
+            if(value > result.score)
+            {
+                Leaderboard.SetScore(LeaderboardName, value);
+                HasRecord = true;
+            }
+        });
 #endif
     }
 
@@ -64,11 +88,22 @@ public class YandexLeaderboard : MonoBehaviour
                     name = "Anonymous";
 
                 PlayerRankingView playerRankingView = Instantiate(_rankingViewPrefab, _container);
-                playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString());
+                playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry == _playerEntry);
 
                 rankingCount++;
             }
         });
+    }
+
+    public void EnableRestartButton()
+    {
+        _restartButton.gameObject.SetActive(true);
+        _closeButton.gameObject.SetActive(false);
+    }
+
+    public void Has()
+    {
+        HasRecord = true;
     }
 
     private void AuthtirizeIfNeed()
