@@ -32,7 +32,9 @@ public class RestartPanel : MonoBehaviour
     public void Show()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
+        OnOpenCallback();
         OnRewardedCallback();
+        OnCloseCallback();
         return;
 #endif
         VideoAd.Show(OnOpenCallback, OnRewardedCallback, OnCloseCallback);

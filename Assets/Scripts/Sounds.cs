@@ -9,7 +9,6 @@ public class Sounds : MonoBehaviour
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private AudioSource _chipSound;
     [SerializeField] private Level _level;
-    [SerializeField] private AudioSource _loseSound;
     [SerializeField] private JokerGiver _jokerGiver;
     [SerializeField] private AudioSource _maxValueReachedSound;
     [SerializeField] private AudioSource _JokerGaveSound;
@@ -36,7 +35,6 @@ public class Sounds : MonoBehaviour
     private void OnEnable()
     {
         _healthBar.HeartRemoved += PlayChipSound;
-        _level.LevelLost += PlayLoseSound;
         _cardSpawner.DealCardsStared += PlayDealCardsSound;
         _cardSpawner.DealCardsEnd += StopDealCardsSound;
         _cardSpawner.MoveCardStarted += PlayMoveCardSound;
@@ -49,7 +47,6 @@ public class Sounds : MonoBehaviour
     private void OnDisable()
     {
         _healthBar.HeartRemoved -= PlayChipSound;
-        _level.LevelLost -= PlayLoseSound;
         _cardSpawner.DealCardsStared -= PlayDealCardsSound;
         _cardSpawner.DealCardsEnd -= StopDealCardsSound;
         _cardSpawner.MoveCardStarted -= PlayMoveCardSound;
@@ -86,11 +83,6 @@ public class Sounds : MonoBehaviour
     private void PlayChipSound()
     {
         _chipSound.Play();
-    }
-
-    private void PlayLoseSound()
-    {
-        _loseSound.Play();
     }
 
     private void PlayMaxValueReachedSound()
