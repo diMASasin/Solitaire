@@ -8,8 +8,7 @@ using System;
 public class UITimeHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
-
-    private Image _circle;
+    [SerializeField] private Image _circle;
 
     private  int _minutesWaiting = 5;
 
@@ -17,6 +16,11 @@ public class UITimeHandler : MonoBehaviour
 
     private const float Step = 0.2f;
     private const int OneSecond = 1;
+
+    private void Start()
+    {
+        _circle.fillAmount = 1;
+    }
 
     private void OnValidate()
     {
@@ -34,6 +38,7 @@ public class UITimeHandler : MonoBehaviour
             _text.text = _minutesWaiting.ToString();
 
             _circle.fillAmount -= Step;
+            Debug.Log(_circle.fillAmount + " " + Step);
         }
         
         action.Invoke();

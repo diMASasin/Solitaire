@@ -33,8 +33,7 @@ public class HealthBar : MonoBehaviour
 
             _gameoverPanel.gameObject.SetActive(true);
             _fakeCard.gameObject.SetActive(true);
-
-            _leaderboard.SetLeaderboardScore(_score.TotalValue); 
+            _leaderboard.SetLeaderboardScore(_score.Record);
 
             return;
         }
@@ -45,7 +44,7 @@ public class HealthBar : MonoBehaviour
             _rewarnPanelShown = true;
             _fakeCard.gameObject.SetActive(true);
             _restartPanel.Init(this, _level);
-            _leaderboard.SetLeaderboardScore(_score.TotalValue); 
+            _leaderboard.SetLeaderboardScore(_score.Record);
             _level.Lose();
         }
 

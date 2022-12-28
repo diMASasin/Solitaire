@@ -34,7 +34,8 @@ public class ColumnView : MonoBehaviour
         else
             _image.color = _defaultColor;
 
-        foreach (var effect in _21effect)
-            effect.Play();
+        if(value)
+            foreach (var effect in _21effect)
+                effect.Play();
     }
 }

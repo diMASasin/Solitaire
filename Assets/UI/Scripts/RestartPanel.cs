@@ -12,6 +12,7 @@ public class RestartPanel : MonoBehaviour
     [SerializeField] private Image _circle;
     [SerializeField] private YandexAd _yandexAd;
     [SerializeField] private YandexLeaderboard _leaderboard;
+    [SerializeField] private WindowOpener _leaderboarWindow;
 
     private HealthBar _healthBar;
     private bool _adShowing = false;
@@ -39,7 +40,7 @@ public class RestartPanel : MonoBehaviour
     {
         if (_leaderboard.HasRecord)
         {
-            _leaderboard.gameObject.SetActive(true);
+            _leaderboarWindow.Open();
             _leaderboard.Show();
             _leaderboard.EnableRestartButton();
         }
@@ -61,16 +62,14 @@ public class RestartPanel : MonoBehaviour
 
         _fakeCard.gameObject.SetActive(false);
         gameObject.SetActive(false);
-        _adShowing = false;
-        OnClose();
     }
 
     private void OnRewardedCallback()
     {
         _healthBar.AddHeart();
-        _fakeCard.gameObject.SetActive(false);
+        //_fakeCard.gameObject.SetActive(false);
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     private void OnClose()
@@ -79,5 +78,8 @@ public class RestartPanel : MonoBehaviour
             return;
 
         _fakeCard.gameObject.SetActive(false);
+
+        if (_circle != null)
+            EnableLeaderboardOrRestart();
     }
 }

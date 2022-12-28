@@ -9,12 +9,11 @@ public class Score : MonoBehaviour
 
     private int _value;
 
-    private const string TOTAL_VALUE = nameof(TOTAL_VALUE);
-
-    public int TotalValue
+    private const string RECORD = nameof(RECORD);
+    public int Record
     {
-        get { return PlayerPrefs.GetInt(TOTAL_VALUE); }
-        private set { PlayerPrefs.SetInt(TOTAL_VALUE, value); }
+        get { return PlayerPrefs.GetInt(RECORD); }
+        private set { PlayerPrefs.SetInt(RECORD, value); }
     }
 
     public int Value => _value;
@@ -32,7 +31,7 @@ public class Score : MonoBehaviour
 
         _text.text = LeanLocalization.CurrentTranslations["Очки"].Data.ToString() + ": " + _value.ToString();
 
-        if (_value > TotalValue)
-            TotalValue = _value;
+        if (_value > Record)
+            Record = _value;
     }
 }

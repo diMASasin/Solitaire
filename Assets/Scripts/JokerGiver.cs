@@ -49,6 +49,7 @@ public class JokerGiver : MonoBehaviour
 
     private void OnMaxValueReachedChanged(bool value)
     {
+        Debug.Log(value);
         if (!value)
             return;
 
@@ -71,6 +72,7 @@ public class JokerGiver : MonoBehaviour
         _jokerButton.gameObject.SetActive(true);
 
         _jokerEffect.Play();
+        Debug.Log("υσυ");
         foreach (var effect in _columnsEffect)
             effect.Play();
     }

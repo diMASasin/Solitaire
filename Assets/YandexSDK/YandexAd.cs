@@ -11,8 +11,6 @@ public class YandexAd : MonoBehaviour
     {
         if (_triesCounter.Tries > 1)
             ShowBilboardAd(StopGame, StartGame);
-
-        Authorize();
     }
 
     private void Authorize()

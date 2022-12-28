@@ -19,6 +19,7 @@ public class YandexLeaderboard : MonoBehaviour
     [SerializeField] private Button _closeButton;
     [SerializeField] private Button _restartButton;
     [SerializeField] private LeanToken _record;
+    [SerializeField] private Score _score;
 
     private int _rankingMaxCount = 5;
     private LeaderboardEntryResponse _playerEntry = null;
@@ -29,11 +30,7 @@ public class YandexLeaderboard : MonoBehaviour
 
     private void Awake()
     {
-        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-        {
-            _playerEntry = result;
-            _record.Value = _playerEntry.score.ToString();
-        });
+        UpdateRecord();
     }
 
     public void SetLeaderboardScore(int value)
@@ -41,6 +38,7 @@ public class YandexLeaderboard : MonoBehaviour
 #if !UNITY_EDITOR
         Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
+            Debug.Log($"value: {value} result.sore: {result.score}");
             if(value > result.score)
             {
                 Leaderboard.SetScore(LeaderboardName, value);
@@ -88,7 +86,7 @@ public class YandexLeaderboard : MonoBehaviour
                     name = "Anonymous";
 
                 PlayerRankingView playerRankingView = Instantiate(_rankingViewPrefab, _container);
-                playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry == _playerEntry);
+                playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry.player.uniqueID == _playerEntry.player.uniqueID);
 
                 rankingCount++;
             }
@@ -101,9 +99,21 @@ public class YandexLeaderboard : MonoBehaviour
         _closeButton.gameObject.SetActive(false);
     }
 
-    public void Has()
+    public void UpdateRecord()
     {
-        HasRecord = true;
+#if !UNITY_EDITOR
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+        {
+            _playerEntry = result;
+            _record.Value = _playerEntry.score.ToString();
+        },
+        (error) =>
+        {
+            _record.Value = _score.Record.ToString();
+        });
+#else
+        _record.Value = _score.Record.ToString();
+#endif
     }
 
     private void AuthtirizeIfNeed()
