@@ -86,6 +86,9 @@ public class YandexLeaderboard : MonoBehaviour
                     name = "Anonymous";
 
                 PlayerRankingView playerRankingView = Instantiate(_rankingViewPrefab, _container);
+                if (_playerEntry == null)
+                    Leaderboard.GetPlayerEntry(LeaderboardName, (result) => _playerEntry = result);
+
                 playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry.player.uniqueID == _playerEntry.player.uniqueID);
 
                 rankingCount++;

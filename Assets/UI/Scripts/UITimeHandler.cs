@@ -38,7 +38,6 @@ public class UITimeHandler : MonoBehaviour
             _text.text = _minutesWaiting.ToString();
 
             _circle.fillAmount -= Step;
-            Debug.Log(_circle.fillAmount + " " + Step);
         }
         
         action.Invoke();

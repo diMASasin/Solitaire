@@ -1,6 +1,7 @@
 using UnityEngine;
 using Agava.YandexGames;
 using UnityEngine.UI;
+using System;
 
 public class RestartPanel : MonoBehaviour
 {
@@ -17,7 +18,16 @@ public class RestartPanel : MonoBehaviour
     private HealthBar _healthBar;
     private bool _adShowing = false;
 
-    private void Start() => _timeHandler.StartTimer(OnClose);
+    public event Action AddHeartAdOffer;
+    public event Action AddHeartAdClick;
+
+    private void Start()
+    {
+        _timeHandler.StartTimer(OnClose);
+
+        if (_circle != null)
+            AddHeartAdOffer?.Invoke();
+    }
 
     public void Show()
     {
@@ -38,10 +48,15 @@ public class RestartPanel : MonoBehaviour
 
     public void EnableLeaderboardOrRestart()
     {
+#if UNITY_EDITOR 
+            _level.Restart();
+        return;
+#endif
+
         if (_leaderboard.HasRecord)
         {
-            _leaderboarWindow.Open();
             _leaderboard.Show();
+            _leaderboarWindow.Open();
             _leaderboard.EnableRestartButton();
         }
         else
@@ -54,6 +69,7 @@ public class RestartPanel : MonoBehaviour
     {
         _adShowing = true;
         _yandexAd.StopGame();
+        AddHeartAdClick?.Invoke();
     }
 
     private void OnCloseCallback()

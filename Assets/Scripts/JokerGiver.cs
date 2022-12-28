@@ -11,7 +11,8 @@ public class JokerGiver : MonoBehaviour
     [SerializeField] private ParticleSystem[] _columnsEffect;
     [SerializeField] private ParticleSystem _jokerEffect;
 
-    public event Action JokerGave;
+    public event Action JokerButtonEnabled;
+    public event Action JokerAdButtonClicked;
     public event Action MaxValueReached;
 
     private void OnValidate()
@@ -37,6 +38,7 @@ public class JokerGiver : MonoBehaviour
         if (_cardSpawner.ShowingCard == null || !_cardSpawner.ShowingCard.Dragger.CanDrag)
             return;
 
+        JokerAdButtonClicked?.Invoke();
         ResetMaxValueReached();
 
         var joker = Instantiate(_jokerTemplate, Vector3.zero, Quaternion.Euler(new Vector3(90, 0, 0))).GetComponent<Card>();
@@ -49,7 +51,6 @@ public class JokerGiver : MonoBehaviour
 
     private void OnMaxValueReachedChanged(bool value)
     {
-        Debug.Log(value);
         if (!value)
             return;
 
@@ -68,11 +69,11 @@ public class JokerGiver : MonoBehaviour
             return;
         }
 
-        JokerGave?.Invoke();
+        JokerButtonEnabled?.Invoke();
         _jokerButton.gameObject.SetActive(true);
 
         _jokerEffect.Play();
-        Debug.Log("υσυ");
+
         foreach (var effect in _columnsEffect)
             effect.Play();
     }

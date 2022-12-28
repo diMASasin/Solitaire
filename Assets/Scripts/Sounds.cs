@@ -42,7 +42,7 @@ public class Sounds : MonoBehaviour
         _cardSpawner.MoveCardStarted += PlayMoveCardSound;
         _cardSpawner.CardDroped += PlayDropCardSound;
         _jokerGiver.MaxValueReached += PlayMaxValueReachedSound;
-        _jokerGiver.JokerGave += PlayJokerGaveSound;
+        _jokerGiver.JokerButtonEnabled += PlayJokerGaveSound;
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeEvent;
     }
 
@@ -55,6 +55,7 @@ public class Sounds : MonoBehaviour
         _cardSpawner.MoveCardStarted -= PlayMoveCardSound;
         _cardSpawner.CardDroped -= PlayDropCardSound;
         _jokerGiver.MaxValueReached -= PlayMaxValueReachedSound;
+        _jokerGiver.JokerButtonEnabled -= PlayJokerGaveSound;
         WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeEvent;
     }
 
