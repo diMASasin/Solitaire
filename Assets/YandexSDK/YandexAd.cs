@@ -9,8 +9,7 @@ public class YandexAd : MonoBehaviour
 
     private void Start()
     {
-        if (_triesCounter.Tries > 1)
-            ShowBilboardAd(StopGame, StartGame);
+        ShowBilboardAd(StopGame, StartGame);
     }
 
     private void Authorize()

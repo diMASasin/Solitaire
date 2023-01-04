@@ -24,10 +24,12 @@ public class YandexInitialize : MonoBehaviour
         SceneManager.LoadScene(FirstSceneIndex);
         yield break;
 #endif
-        yield return YandexGamesSdk.Initialize(() => PlayerAccount.RequestPersonalProfileDataPermission());
+        Debug.Log("Initializing");
+        yield return YandexGamesSdk.Initialize();
+        Debug.Log("Initialized");
 
-        string language = YandexGamesSdk.Environment.i18n.lang;
-        LeanLocalization.SetCurrentLanguageAll(language);
+        //string language = YandexGamesSdk.Environment.i18n.lang;
+        //LeanLocalization.SetCurrentLanguageAll(language);
 
         SceneManager.LoadScene(FirstSceneIndex);
     }

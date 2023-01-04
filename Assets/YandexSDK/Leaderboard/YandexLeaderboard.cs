@@ -22,13 +22,13 @@ public class YandexLeaderboard : MonoBehaviour
     [SerializeField] private Score _score;
 
     private int _rankingMaxCount = 5;
-    private LeaderboardEntryResponse _playerEntry = null;
+    private string _playerID = null;
 
     private const string LeaderboardName = "Leaderboard";
 
     public bool HasRecord { get; private set; } = false;
 
-    private void Awake()
+    private void Start()
     {
         UpdateRecord();
     }
@@ -87,9 +87,9 @@ public class YandexLeaderboard : MonoBehaviour
 
                 PlayerRankingView playerRankingView = Instantiate(_rankingViewPrefab, _container);
                 //if (_playerEntry == null)
-                    Leaderboard.GetPlayerEntry(LeaderboardName, (result) => _playerEntry = result);
+                    //Leaderboard.GetPlayerEntry(LeaderboardName, (result) => _playerID = result);
 
-                playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry.player.uniqueID == _playerEntry.player.uniqueID);
+                playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry.player.uniqueID == _playerID);
 
                 rankingCount++;
             }
@@ -107,8 +107,9 @@ public class YandexLeaderboard : MonoBehaviour
 #if !UNITY_EDITOR
         Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
-            _playerEntry = result;
-            _record.Value = _playerEntry.score.ToString();
+            _playerID = result.player.uniqueID;
+            Debug.Log("PlayerID: " + _playerID);
+            _record.Value = result.score.ToString();
         },
         (error) =>
         {

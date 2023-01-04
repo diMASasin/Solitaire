@@ -14,6 +14,7 @@ public class RestartPanel : MonoBehaviour
     [SerializeField] private YandexAd _yandexAd;
     [SerializeField] private YandexLeaderboard _leaderboard;
     [SerializeField] private WindowOpener _leaderboarWindow;
+    [SerializeField] private GameObject _table;
 
     private HealthBar _healthBar;
     private bool _adShowing = false;
@@ -27,6 +28,16 @@ public class RestartPanel : MonoBehaviour
 
         if (_circle != null)
             AddHeartAdOffer?.Invoke();
+    }
+
+    private void OnEnable()
+    {
+        _table.SetActive(true);   
+    }
+
+    private void OnDisable()
+    {
+        _table.SetActive(false);   
     }
 
     public void Show()
