@@ -39,7 +39,8 @@ public class SumPointsInColumn : MonoBehaviour
         {
             var ace = _column.FirstCard as TwoValuesCard;
             _text.text = ace.SecondValue + "/";
-            _text.text += _column.FirstCard.Value.ToString();
+            _text.text += ((Card)(_column.FirstCard)).Value.ToString();
+            Debug.Log(ace.SecondValue + " / " + _column.FirstCard.Value.ToString());
             return;
         }
 

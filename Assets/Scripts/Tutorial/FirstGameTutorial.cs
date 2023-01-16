@@ -80,8 +80,8 @@ public class FirstGameTutorial : MonoBehaviour
             foreach (var column in _columns)
                 column.enabled = false;
 
-            _tutorialStages[_tutorialStageIndex].Show();
             _needToShowNextStage = false;
+            _tutorialStages[_tutorialStageIndex].Show();
         }
     }
 
@@ -92,19 +92,33 @@ public class FirstGameTutorial : MonoBehaviour
 
     private void OnStageHid()
     {
-        _hand.SetActive(false);
         _needToShowNextStage = true;
+        _hand.SetActive(false);
     }
 
     private void OnCardAdded()
     {
         _tutorialStages[_tutorialStageIndex].Hide();
         _tutorialStageIndex++;
+        var _currentStage = _tutorialStages[_tutorialStageIndex];
 
         if(_tutorialStageIndex < _tutorialStages.Length)
-            _tutorialStages[_tutorialStageIndex].Show();
+        {
+            if (_currentStage is FirstJokerTutorialStage)
+            {
+                foreach (var column in _columns)
+                    column.CardAdded -= OnCardAdded;
+                (_currentStage as FirstJokerTutorialStage).AddCards();
+                foreach (var column in _columns)
+                    column.CardAdded += OnCardAdded;
+            }
+
+            _currentStage.Show();
+        }
         else
+        {
             OnTutorialCompleted();
+        }
     }
 
     private void OnTutorialCompleted()
@@ -126,5 +140,6 @@ public class FirstGameTutorial : MonoBehaviour
     {
         _gameCardSpawner.enabled = true;
         _gameCardSpawner.StartDealCards();
+        enabled = false;
     }
 }

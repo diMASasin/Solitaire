@@ -8,7 +8,10 @@ enum HandAnimations
 {
     None,
     Column1,
-    Column2
+    Column2,
+    Column3,
+    Column4,
+    Joker
 }
 
 public class TutorialStage : MonoBehaviour
@@ -31,7 +34,7 @@ public class TutorialStage : MonoBehaviour
         _defaultOrderInLayer = _columnCanvas.sortingOrder;
     }
 
-    public void Show()
+    public virtual void Show()
     {
         StageShowed?.Invoke();
         _handAnimator.SetTrigger(_handAnimations.ToString());
@@ -40,7 +43,7 @@ public class TutorialStage : MonoBehaviour
         _columnCanvas.sortingOrder = _requiredOrderInLayer;
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         _handAnimator.SetTrigger(HandAnimations.None.ToString());
         _tutorialText.gameObject.SetActive(false);

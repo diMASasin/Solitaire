@@ -58,7 +58,7 @@ public class CardDrag : MonoBehaviour
         if (raycast)
             hit.collider.TryGetComponent(out column);
 
-        if (!raycast || !column.enabled)
+        if (!raycast || column && !column.enabled)
         {
             float duration = 10f;
             Tween tween = transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
@@ -89,13 +89,14 @@ public class CardDrag : MonoBehaviour
 
     public void MoveToPoint(Vector3 point)
     {
+        Debug.Log("MoveToPoint");
         var duration = 10f;
 
         if (_inColumn)
             transform.DOMove(point, duration * Time.deltaTime).SetEase(Ease.Linear);
     }
 
-    private void ChangeState(bool state)
+    public void ChangeState(bool state)
     {
         _inColumn = state;
     }

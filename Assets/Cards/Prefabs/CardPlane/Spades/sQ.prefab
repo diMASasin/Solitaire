@@ -217,9 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797874c1d02caf54f9f0dccfa2a91d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valueName: 13
+  _valueName: 11
   _suit: 0
-  _value: 10
+  _value: 11
+  _dragger: {fileID: 1397272202320726957}
 --- !u!65 &3217700337411652602
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b626aa8634d0b4389a0123e00b540b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _card: {fileID: 5121174995316224733}
 --- !u!114 &-7487692108588957334
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,8 +54,9 @@ MonoBehaviour:
   _valueName: 11
   _suit: 1
   _value: 11
+  _dragger: {fileID: 7205411776795644558}
   _secondValue: 1
-  IsSecondValueUsing: 0
+  IsSecondValueUsing: 1
 --- !u!65 &1249452073089332147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b626aa8634d0b4389a0123e00b540b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _card: {fileID: 2011557449579088363}
 --- !u!114 &-6194357507444010340
 MonoBehaviour:
   m_ObjectHideFlags: 0
