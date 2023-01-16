@@ -25,6 +25,7 @@ public class Column : MonoBehaviour
 
     public event Action<bool> MaxValueReachedChanged;
     public event Action<int> PointsChanged;
+    public event Action CardAdded;
 
     private void Start() => PointsChanged?.Invoke(_currentValue);
 
@@ -32,7 +33,7 @@ public class Column : MonoBehaviour
 
     private void OnMouseExit() => _readyToAccept = false;
 
-    private void Reset()
+    public void Reset()
     {
         _index = 0;
         _currentValue = 0;
@@ -49,9 +50,6 @@ public class Column : MonoBehaviour
         _cards.Add(card);
         card.transform.position = transform.position;
         card.Move(_points[_index].position);
-        _cardSpawner.ShowingCard.Dragger.SetCanDrag(false);
-        _cardSpawner.ShowFirstCard();
-        _cardSpawner.SpawnCard();
 
         if (_index == _points.Count)
             return;
@@ -87,6 +85,7 @@ public class Column : MonoBehaviour
             var tween = DOTween.Sequence();
             tween.SetDelay(_sumPointColumn.DelayColorChange).OnComplete(Reset);
         }
+        CardAdded?.Invoke();
     }
 
     public void ResetMaxValueReached()

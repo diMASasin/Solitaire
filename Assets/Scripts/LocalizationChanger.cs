@@ -10,20 +10,12 @@ public class LocalizationChanger : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Awake");
         ChangeLocalization();
-        Debug.Log("ChangeLocalization");
-    }
-
-    private void Start()
-    {
-        Debug.Log("Start");
     }
 
     private void ChangeLocalization()
     {
-        //#if !UNITY_EDITOR && UNITY_WEBGL
-        Debug.Log("lang: " + YandexGamesSdk.Environment.i18n.lang);
+#if !UNITY_EDITOR && UNITY_WEBGL
         switch (YandexGamesSdk.Environment.i18n.lang)
         {
             case "en":
@@ -40,6 +32,6 @@ public class LocalizationChanger : MonoBehaviour
                 Debug.Log("Unknown domain");
                 break;
         }
-//#endif
+#endif
     }
 }

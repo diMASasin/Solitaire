@@ -13,7 +13,7 @@ public class RestartPanel : MonoBehaviour
     [SerializeField] private Image _circle;
     [SerializeField] private YandexAd _yandexAd;
     [SerializeField] private YandexLeaderboard _leaderboard;
-    [SerializeField] private WindowOpener _leaderboarWindow;
+    [SerializeField] private WindowOpener _leaderboardWindow;
     [SerializeField] private GameObject _table;
 
     private HealthBar _healthBar;
@@ -68,8 +68,9 @@ public class RestartPanel : MonoBehaviour
 
         if (_leaderboard.HasRecord)
         {
+            _table.SetActive(true);
             _leaderboard.Show();
-            _leaderboarWindow.Open();
+            _leaderboardWindow.Open();
             _leaderboard.EnableRestartButton();
         }
         else

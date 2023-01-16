@@ -98,9 +98,9 @@ RectTransform:
   m_Father: {fileID: 1430847655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 22.625, y: -22.1}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1516176522
@@ -174,9 +174,9 @@ RectTransform:
   m_Father: {fileID: 1430847655}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 52.625, y: -22.1}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2143253720
@@ -650,6 +650,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: YandexAd, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CardSpawner, Assembly-CSharp
+        m_MethodName: StartDealCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5367661906435759812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,7 +1024,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833886477239840815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 6517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1628,7 +1664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3833886478562208926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1747,7 +1783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -563.05695, y: -765.86743}
+  m_AnchoredPosition: {x: -563.0569, y: -765.86743}
   m_SizeDelta: {x: 858.75244, y: -98.49536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8378450850027300184
@@ -1845,13 +1881,7 @@ MonoBehaviour:
     \u043F\u043E\u044F\u0432\u0438\u043B\u0430\u0441\u044C \u043A\u043D\u043E\u043F\u043A\u0430
     \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0414\u0436\u043E\u043A\u0435\u0440\u0430
     \u0441\u043E\u0431\u0435\u0440\u0438\u0442\u0435 21 \u043E\u0447\u043A\u043E
-    \u0432\u043E \u0432\u0441\u0435\u0445 \u043A\u043E\u043B\u043E\u043D\u043A\u0430\u0445.
-    \u0415\u0441\u043B\u0438 \u0432 \u043A\u043E\u043B\u043E\u043D\u043A\u0435 \u0441\u043E\u0431\u0440\u0430\u043D\u043E
-    21 \u043E\u0447\u043A\u043E, \u043E\u043D\u0430 \u043F\u043E\u0434\u0441\u0432\u0435\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044F
-    \u0436\u0435\u043B\u0442\u044B\u043C. \u041F\u043E\u0441\u043B\u0435 \u0442\u043E\u0433\u043E
-    \u043A\u0430\u043A \u0432\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0435
-    \u0414\u0436\u043E\u043A\u0435\u0440\u0430 \u043A\u043E\u043B\u043E\u043D\u043A\u0438
-    \u0441\u043D\u043E\u0432\u0430 \u0441\u0442\u0430\u043D\u0443\u0442 \u0431\u0435\u043B\u044B\u043C\u0438. "
+    \u0432\u043E \u0432\u0441\u0435\u0445 \u043A\u043E\u043B\u043E\u043D\u043A\u0430\u0445."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}
   m_sharedMaterial: {fileID: 4570219559510561554, guid: aad523bca6ce47c46b00e40d9d431177, type: 2}

@@ -53,9 +53,12 @@ public class CardDrag : MonoBehaviour
             return;
 
         var ray = new Ray(transform.position, -transform.up);
-        RaycastHit hit;
+        bool raycast = Physics.Raycast(ray, out RaycastHit hit);
+        Column column = null;
+        if (raycast)
+            hit.collider.TryGetComponent(out column);
 
-        if (!Physics.Raycast(ray, out hit))
+        if (!raycast || !column.enabled)
         {
             float duration = 10f;
             Tween tween = transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
@@ -67,7 +70,7 @@ public class CardDrag : MonoBehaviour
             return;
         }
 
-        if (!hit.collider.TryGetComponent(out Column column))
+        if (!column)
             return;
 
         ChangeState(true);

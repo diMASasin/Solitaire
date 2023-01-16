@@ -6,10 +6,11 @@ using DG.Tweening;
 
 public class CardSpawner : MonoBehaviour
 {
-    [SerializeField] Deck _deck;
-    [SerializeField] Transform _spawnPosition;
-    [SerializeField] private int _maxCards = 8;
+    [SerializeField] protected Deck Deck;
+    [SerializeField] private Transform _spawnPosition;
+    [SerializeField] private int _maxCards = 7;
     [SerializeField] private CardsMover _cardMover;
+    [SerializeField] private Column[] _columns; 
 
     private List<Card> _spawnedCards = new List<Card>();
     private Card _showingCard;
@@ -21,6 +22,23 @@ public class CardSpawner : MonoBehaviour
     public event Action DealCardsEnd;
     public event Action MoveCardStarted;
     public event Action CardDroped;
+
+    private void OnValidate()
+    {
+        _columns = FindObjectsOfType<Column>();
+    }
+
+    private void OnEnable()
+    {
+        foreach (var column in _columns)
+            column.CardAdded += OnCardAdded;
+    }
+
+    private void OnDisable()
+    {
+        foreach (var column in _columns)
+            column.CardAdded -= OnCardAdded;
+    }
 
     public void StartDealCards()
     {
@@ -44,7 +62,11 @@ public class CardSpawner : MonoBehaviour
         _showingCard = _spawnedCards[0];
         _cardMover.MoveCardFromDeck(_showingCard);
         MoveCardStarted?.Invoke();
-        _cardMover.Tween.OnComplete(() => StartCoroutine(DelayedRotateCard()));
+        _cardMover.Tween.OnComplete(() =>
+        {
+            if(gameObject.activeInHierarchy)
+                StartCoroutine(DelayedRotateCard());
+        });
     }
 
     public void InsertInFirst(Card card)
@@ -55,18 +77,32 @@ public class CardSpawner : MonoBehaviour
         card.transform.localPosition = pos;
     }
 
-    public void SpawnCard()
+    public virtual void SpawnRequiredCard()
     {
-        if (_deck.TryGetRandomCard(out Card card))
-        {
-            var newCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 0, 0), _spawnPosition);
-            _spawnedCards.Add(newCard);
-        }
+        if (Deck.TryGetRandomCard(out Card card))
+            SpawnCard(card);
     }
 
     public void MoveSpawnedCardsBack()
     {
         _cardMover.MoveCardsBack(_spawnedCards);
+    }
+
+    public void OnCardAdded()
+    {
+        if (!_cardsDealed)
+            return;
+
+        if(ShowingCard && ShowingCard.isActiveAndEnabled)
+            ShowingCard.Dragger.SetCanDrag(false);
+        ShowFirstCard();
+        SpawnRequiredCard();
+    }
+
+    protected void SpawnCard(Card card)
+    {
+        var newCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 0, 0), _spawnPosition);
+        _spawnedCards.Add(newCard);
     }
 
     private IEnumerator DealCards()
@@ -75,7 +111,7 @@ public class CardSpawner : MonoBehaviour
 
         for (int i = 0; i < _maxCards; i++)
         {
-            SpawnCard();
+            SpawnRequiredCard();
             _cardMover.MoveCards(_spawnedCards);
             yield return _cardMover.Tween?.WaitForCompletion();
             yield return new WaitForSeconds(_cardMover.MoveCardDurationDelay);
@@ -84,7 +120,7 @@ public class CardSpawner : MonoBehaviour
 
         DealCardsEnd?.Invoke();
         ShowFirstCard();
-        SpawnCard();
+        SpawnRequiredCard();
     }
 
     private IEnumerator DelayedRotateCard()
@@ -99,5 +135,4 @@ public class CardSpawner : MonoBehaviour
         });
         _spawnedCards.Remove(_showingCard);
     }
-
 }
