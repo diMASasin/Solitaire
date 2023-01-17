@@ -7,6 +7,15 @@ public class YandexAd : MonoBehaviour
     [SerializeField] Sounds _sounds;
     [SerializeField] TriesCounter _triesCounter;
 
+    private const string InterstitialShowingCount = nameof(InterstitialShowingCount);
+    private int _interstitialShowingCount
+    {
+        get { return PlayerPrefs.GetInt(InterstitialShowingCount, 0); }
+        set { PlayerPrefs.SetInt(InterstitialShowingCount, value); }
+    }
+
+    public event Action<int> InterstitialShowed;
+
     private void Start()
     {
         ShowBilboardAd(StopGame, StartGame);
@@ -23,6 +32,8 @@ public class YandexAd : MonoBehaviour
     {
 #if !UNITY_EDITOR
         InterstitialAd.Show(OnOpenCallback, OnCloseCallback);
+        _interstitialShowingCount++;
+        InterstitialShowed?.Invoke(_interstitialShowingCount);
 #else
         Debug.Log("InterstitialShowed");
 #endif

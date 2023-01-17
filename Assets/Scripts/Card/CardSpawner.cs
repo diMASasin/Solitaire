@@ -93,7 +93,7 @@ public class CardSpawner : MonoBehaviour
         _cardMover.MoveCardsBack(_spawnedCards);
     }
 
-    public void OnCardAdded()
+    public virtual void OnCardAdded()
     {
         if (!_cardsDealed)
             return;
@@ -146,7 +146,6 @@ public class CardSpawner : MonoBehaviour
         if (ShowingCard == null || !ShowingCard.Dragger.CanDrag)
             return;
 
-        Debug.Log("GiveJoker");
         InsertInFirst(joker);
         DestroyCard();
         ShowFirstCard();

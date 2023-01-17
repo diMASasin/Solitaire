@@ -13,8 +13,6 @@ public class SecondJokerTutorial : TutorialStage
 
     public void AddCards()
     {
-        Debug.Log("AddCards");
-
         foreach (var card in _thirdColumnCards)
         {
             var spawnedCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 180, 0), _spawnPosition);

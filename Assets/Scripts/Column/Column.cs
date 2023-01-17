@@ -26,6 +26,7 @@ public class Column : MonoBehaviour
     public event Action<bool> MaxValueReachedChanged;
     public event Action<int> PointsChanged;
     public event Action CardAdded;
+    public event Action ColumnReset;
 
     private void Start() => PointsChanged?.Invoke(_currentValue);
 
@@ -43,6 +44,7 @@ public class Column : MonoBehaviour
             item.gameObject.SetActive(false);
 
         _cards.Clear();
+        ColumnReset?.Invoke();
     }
 
     public void AddNewCard(Card card)

@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797874c1d02caf54f9f0dccfa2a91d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valueName: 10
+  _valueName: 12
   _suit: 0
   _value: 10
   _dragger: {fileID: 7375158135290179297}

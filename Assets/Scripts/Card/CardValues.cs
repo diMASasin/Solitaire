@@ -9,10 +9,10 @@ public enum CardValues
     Eight,
     Nine,
     Ten,
-    Ace,
-    Jack = 10,
-    Queen = 11,
-    King = 12,
+    Ace = 11,
+    Jack = 12,
+    Queen = 13,
+    King = 14,
     Joker = 999
 }
 

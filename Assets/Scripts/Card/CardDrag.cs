@@ -89,7 +89,6 @@ public class CardDrag : MonoBehaviour
 
     public void MoveToPoint(Vector3 point)
     {
-        Debug.Log("MoveToPoint");
         var duration = 10f;
 
         if (_inColumn)

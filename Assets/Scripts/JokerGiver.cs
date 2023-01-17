@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class JokerGiver : MonoBehaviour
 {
     [SerializeField] private Column[] _columns;
-    [SerializeField] private Button _jokerButton;
+    [SerializeField] private JokerButton _jokerButton;
     [SerializeField] private GameObject _jokerTemplate;
     [SerializeField] private CardSpawner _cardSpawner;
     [SerializeField] private ParticleSystem[] _columnsEffect;
@@ -36,14 +36,11 @@ public class JokerGiver : MonoBehaviour
 
     public void GiveJoker()
     {
-        Debug.Log("GiveJoker");
-
         JokerAdButtonClicked?.Invoke();
         ResetMaxValueReached();
 
         var joker = Instantiate(_jokerTemplate, Vector3.zero, Quaternion.Euler(new Vector3(90, 0, 0))).GetComponent<Card>();
 
-        Debug.Log("JokerGot");
         JokerGot?.Invoke(joker);
     }
 
@@ -67,8 +64,8 @@ public class JokerGiver : MonoBehaviour
             return;
         }
 
+        _jokerButton.EnableWithAd();
         JokerButtonEnabled?.Invoke();
-        _jokerButton.gameObject.SetActive(true);
 
         _jokerEffect.Play();
 
