@@ -50,7 +50,7 @@ public class Column : MonoBehaviour
     public void AddNewCard(Card card)
     {
         _cards.Add(card);
-        card.transform.position = transform.position;
+        //card.transform.position = transform.position;
         card.Move(_points[_index].position);
 
         if (_index == _points.Count)

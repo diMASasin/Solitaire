@@ -58,7 +58,7 @@ public class CardDrag : MonoBehaviour
         if (raycast)
             hit.collider.TryGetComponent(out column);
 
-        if (!raycast || column && !column.enabled)
+        if (!raycast || !column || column && !column.enabled)
         {
             float duration = 10f;
             Tween tween = transform.DOMove(_startPosition, duration * Time.deltaTime).SetEase(Ease.Linear);
@@ -70,8 +70,8 @@ public class CardDrag : MonoBehaviour
             return;
         }
 
-        if (!column)
-            return;
+        //if (!column)
+        //    return;
 
         ChangeState(true);
         column.AddNewCard(_card);

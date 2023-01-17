@@ -860,9 +860,9 @@ MonoBehaviour:
   _rewardButton: {fileID: 0}
   _level: {fileID: 103574508}
   _circle: {fileID: 0}
-  _yandexAd: {fileID: 0}
+  _yandexAd: {fileID: 734885846}
   _leaderboard: {fileID: 1597891027}
-  _leaderboardWindow: {fileID: 0}
+  _leaderboardWindow: {fileID: 1597891033}
   _table: {fileID: 1608417988}
 --- !u!222 &157096236
 CanvasRenderer:
@@ -7045,7 +7045,7 @@ MonoBehaviour:
   _circle: {fileID: 324575519}
   _yandexAd: {fileID: 734885846}
   _leaderboard: {fileID: 1597891027}
-  _leaderboardWindow: {fileID: 0}
+  _leaderboardWindow: {fileID: 1597891033}
   _table: {fileID: 1608417988}
 --- !u!114 &1566351176
 MonoBehaviour:
@@ -9460,8 +9460,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 147, y: -320}
-  m_SizeDelta: {x: 66.97, y: 153.75}
+  m_AnchoredPosition: {x: 145.6, y: -313.7}
+  m_SizeDelta: {x: 90.9, y: 150.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2111640642
 Animator:
@@ -9503,7 +9503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ccf8d017b7f8f574a86cbb80d0364da7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e00a714cdea5f7c4aaa2d3c4cb6f784c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

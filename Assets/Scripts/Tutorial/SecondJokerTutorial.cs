@@ -17,6 +17,7 @@ public class SecondJokerTutorial : TutorialStage
         {
             var spawnedCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 180, 0), _spawnPosition);
             spawnedCard.Dragger.ChangeState(true);
+            spawnedCard.transform.position = _columns[2].transform.position;
             _columns[2].AddNewCard(spawnedCard);
         }
 
@@ -24,6 +25,7 @@ public class SecondJokerTutorial : TutorialStage
         {
             var spawnedCard = Instantiate(card, _spawnPosition.position, Quaternion.Euler(90, 180, 0), _spawnPosition);
             spawnedCard.Dragger.ChangeState(true);
+            spawnedCard.transform.position = _columns[3].transform.position;
             _columns[3].AddNewCard(spawnedCard);
         }
     }
