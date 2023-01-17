@@ -13,6 +13,8 @@ public class FirstGameTutorial : MonoBehaviour
     [SerializeField] private Column[] _columns;
     [SerializeField] private TutorialStage[] _tutorialStages;
     [SerializeField] private GameObject _hand;
+    [SerializeField] private JokerGiver _jokerGiver;
+    [SerializeField] private Score _score;
 
     private int _tutorialStageIndex = 0;
     private bool _needToShowNextStage = false;
@@ -36,6 +38,7 @@ public class FirstGameTutorial : MonoBehaviour
         }
 
         _tutorialCardSpawner.CardDroped += OnCardDropped;
+        _jokerGiver.JokerAdButtonClicked += OnCardAdded;
     }
 
     private void OnDisable()
@@ -50,6 +53,7 @@ public class FirstGameTutorial : MonoBehaviour
         }
 
         _tutorialCardSpawner.CardDroped -= OnCardDropped;
+        _jokerGiver.JokerAdButtonClicked -= OnCardAdded;
     }
 
     private void Start()
@@ -64,11 +68,11 @@ public class FirstGameTutorial : MonoBehaviour
 
     private void ShowTutorial()
     {
-        _tutorialCardSpawner.StartDealCards();
-
         _blackout.SetActive(true);
         _tutorial.SetActive(true);
         _tutorialShowed = true;
+
+        _tutorialCardSpawner.StartDealCards();
 
         _needToShowNextStage = true;
     }
@@ -77,12 +81,17 @@ public class FirstGameTutorial : MonoBehaviour
     {
         if(_needToShowNextStage)
         {
-            foreach (var column in _columns)
-                column.enabled = false;
+            SetColumnsEnabled(false);
 
             _needToShowNextStage = false;
             _tutorialStages[_tutorialStageIndex].Show();
         }
+    }
+
+    private void SetColumnsEnabled(bool value)
+    {
+        foreach (var column in _columns)
+            column.enabled = value;
     }
 
     private void OnStageShowed()
@@ -100,15 +109,15 @@ public class FirstGameTutorial : MonoBehaviour
     {
         _tutorialStages[_tutorialStageIndex].Hide();
         _tutorialStageIndex++;
-        var _currentStage = _tutorialStages[_tutorialStageIndex];
 
         if(_tutorialStageIndex < _tutorialStages.Length)
         {
-            if (_currentStage is FirstJokerTutorialStage)
+            var _currentStage = _tutorialStages[_tutorialStageIndex];
+            if (_currentStage is SecondJokerTutorial)
             {
                 foreach (var column in _columns)
                     column.CardAdded -= OnCardAdded;
-                (_currentStage as FirstJokerTutorialStage).AddCards();
+                (_currentStage as SecondJokerTutorial).AddCards();
                 foreach (var column in _columns)
                     column.CardAdded += OnCardAdded;
             }
@@ -119,6 +128,12 @@ public class FirstGameTutorial : MonoBehaviour
         {
             OnTutorialCompleted();
         }
+    }
+
+    private void OnJokerButtonClicked()
+    {
+        _tutorialStages[_tutorialStageIndex].Hide();
+        _tutorialStageIndex++;
     }
 
     private void OnTutorialCompleted()
@@ -140,6 +155,8 @@ public class FirstGameTutorial : MonoBehaviour
     {
         _gameCardSpawner.enabled = true;
         _gameCardSpawner.StartDealCards();
+        _score.Reset();
+        SetColumnsEnabled(true);
         enabled = false;
     }
 }

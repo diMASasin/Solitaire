@@ -10,7 +10,8 @@ public class CardSpawner : MonoBehaviour
     [SerializeField] private Transform _spawnPosition;
     [SerializeField] private int _maxCards = 7;
     [SerializeField] private CardsMover _cardMover;
-    [SerializeField] private Column[] _columns; 
+    [SerializeField] private Column[] _columns;
+    [SerializeField] private JokerGiver _jokerGiver;
 
     private List<Card> _spawnedCards = new List<Card>();
     private Card _showingCard;
@@ -32,12 +33,16 @@ public class CardSpawner : MonoBehaviour
     {
         foreach (var column in _columns)
             column.CardAdded += OnCardAdded;
+
+        _jokerGiver.JokerGot += GiveJoker;
     }
 
     private void OnDisable()
     {
         foreach (var column in _columns)
             column.CardAdded -= OnCardAdded;
+
+        _jokerGiver.JokerGot -= GiveJoker;
     }
 
     public void StartDealCards()
@@ -134,5 +139,17 @@ public class CardSpawner : MonoBehaviour
             CardDroped?.Invoke();
         });
         _spawnedCards.Remove(_showingCard);
+    }
+
+    private void GiveJoker(Card joker)
+    {
+        if (ShowingCard == null || !ShowingCard.Dragger.CanDrag)
+            return;
+
+        Debug.Log("GiveJoker");
+        InsertInFirst(joker);
+        DestroyCard();
+        ShowFirstCard();
+        MoveSpawnedCardsBack();
     }
 }

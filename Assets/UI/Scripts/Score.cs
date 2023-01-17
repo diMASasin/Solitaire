@@ -22,16 +22,27 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
-        _text.text = LeanLocalization.CurrentTranslations["Очки"].Data.ToString() + ": " + _value.ToString();
+        UpdateText();
+    }
+
+    public void Reset()
+    {
+        _value = 0;
+        UpdateText();
     }
 
     public void AddScore() 
     {
         _value += Revard;
 
-        _text.text = LeanLocalization.CurrentTranslations["Очки"].Data.ToString() + ": " + _value.ToString();
+        UpdateText();
 
         if (_value > Record)
             Record = _value;
+    }
+
+    private void UpdateText()
+    {
+        _text.text = LeanLocalization.CurrentTranslations["Очки"].Data.ToString() + ": " + _value.ToString();
     }
 }

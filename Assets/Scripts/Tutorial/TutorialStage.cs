@@ -30,24 +30,31 @@ public class TutorialStage : MonoBehaviour
 
     private void Awake()
     {
-        _columnCanvas = _activeColumn.GetComponentInChildren<Canvas>();
-        _defaultOrderInLayer = _columnCanvas.sortingOrder;
+        if (_activeColumn)
+        {
+            _columnCanvas = _activeColumn.GetComponentInChildren<Canvas>();
+            _defaultOrderInLayer = _columnCanvas.sortingOrder;
+        }
     }
 
     public virtual void Show()
     {
         StageShowed?.Invoke();
         _handAnimator.SetTrigger(_handAnimations.ToString());
-        _activeColumn.enabled = true;
+        if(_activeColumn)
+        {
+            _activeColumn.enabled = true;
+            _columnCanvas.sortingOrder = _requiredOrderInLayer;
+        }
         _tutorialText.gameObject.SetActive(true);
-        _columnCanvas.sortingOrder = _requiredOrderInLayer;
     }
 
     public virtual void Hide()
     {
         _handAnimator.SetTrigger(HandAnimations.None.ToString());
         _tutorialText.gameObject.SetActive(false);
-        _columnCanvas.sortingOrder = _defaultOrderInLayer;
+        if (_activeColumn)
+            _columnCanvas.sortingOrder = _defaultOrderInLayer;
         StageHid?.Invoke();
     }
 }

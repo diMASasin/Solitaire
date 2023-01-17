@@ -26,6 +26,7 @@ public class JokerButton : MonoBehaviour
             Disable();
         });
 #else
+        Debug.Log("OnButtonClicked");
         _jokerGiver.GiveJoker();
         Disable();
 #endif

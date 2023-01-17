@@ -13,6 +13,7 @@ public class JokerGiver : MonoBehaviour
 
     public event Action JokerButtonEnabled;
     public event Action JokerAdButtonClicked;
+    public event Action<Card> JokerGot;
     public event Action MaxValueReached;
 
     private void OnValidate()
@@ -35,18 +36,15 @@ public class JokerGiver : MonoBehaviour
 
     public void GiveJoker()
     {
-        if (_cardSpawner.ShowingCard == null || !_cardSpawner.ShowingCard.Dragger.CanDrag)
-            return;
+        Debug.Log("GiveJoker");
 
         JokerAdButtonClicked?.Invoke();
         ResetMaxValueReached();
 
         var joker = Instantiate(_jokerTemplate, Vector3.zero, Quaternion.Euler(new Vector3(90, 0, 0))).GetComponent<Card>();
 
-        _cardSpawner.InsertInFirst(joker);
-        _cardSpawner.DestroyCard();
-        _cardSpawner.ShowFirstCard();
-        _cardSpawner.MoveSpawnedCardsBack();
+        Debug.Log("JokerGot");
+        JokerGot?.Invoke(joker);
     }
 
     private void OnMaxValueReachedChanged(bool value)
