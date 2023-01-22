@@ -42,7 +42,7 @@ public class RestartButton : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        _restartPanel.EnableLeaderboardOrRestart();
+        _restartPanel.LoseAndEnableLeaderboard();
         _restartPanel.gameObject.SetActive(false);
     }
 }

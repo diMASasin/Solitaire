@@ -220,6 +220,7 @@ MonoBehaviour:
   _valueName: 6
   _suit: 0
   _value: 6
+  _dragger: {fileID: 3477389246876114779}
 --- !u!65 &4886361318167219449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -231,8 +232,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6635921, y: 0.06254093, z: 1}
+  m_Center: {x: 0.0006710291, y: 0.0054834187, z: 0}
 --- !u!114 &3477389246876114779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b626aa8634d0b4389a0123e00b540b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _card: {fileID: 7754770293707542470}
 --- !u!114 &-4523968679283613283
 MonoBehaviour:
   m_ObjectHideFlags: 0

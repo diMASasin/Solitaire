@@ -35,11 +35,6 @@ public class RestartPanel : MonoBehaviour
         _table.SetActive(true);   
     }
 
-    private void OnDisable()
-    {
-        _table.SetActive(false);   
-    }
-
     public void Show()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
@@ -59,24 +54,13 @@ public class RestartPanel : MonoBehaviour
         _level = level;
     }
 
-    public void EnableLeaderboardOrRestart()
+    public void LoseAndEnableLeaderboard()
     {
-#if UNITY_EDITOR 
-            _level.Restart();
-        return;
-#endif
-
-        if (_leaderboard.HasRecord)
-        {
-            _table.SetActive(true);
-            _leaderboard.Show();
-            _leaderboardWindow.Open();
-            _leaderboard.EnableRestartButton();
-        }
-        else
-        {
-            _level.Restart();
-        }
+        _level.Lose();
+        _table.SetActive(true);
+        _leaderboard.Show();
+        _leaderboardWindow.Open();
+        _leaderboard.EnableRestartButton();
     }
 
     private void OnOpenCallback()
@@ -91,15 +75,13 @@ public class RestartPanel : MonoBehaviour
         _yandexAd.StartGame();
 
         _fakeCard.gameObject.SetActive(false);
+        _table.SetActive(false);
         gameObject.SetActive(false);
     }
 
     private void OnRewardedCallback()
     {
         _healthBar.AddHeart();
-        //_fakeCard.gameObject.SetActive(false);
-
-        //gameObject.SetActive(false);
     }
 
     private void OnClose()
@@ -110,6 +92,8 @@ public class RestartPanel : MonoBehaviour
         _fakeCard.gameObject.SetActive(false);
 
         if (_circle != null)
-            EnableLeaderboardOrRestart();
+            LoseAndEnableLeaderboard();
+
+        gameObject.SetActive(false);
     }
 }

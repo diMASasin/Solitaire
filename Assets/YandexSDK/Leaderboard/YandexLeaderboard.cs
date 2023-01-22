@@ -22,7 +22,7 @@ public class YandexLeaderboard : MonoBehaviour
     [SerializeField] private Score _score;
 
     private int _rankingMaxCount = 5;
-    private string _playerID = null;
+    private static string _playerID = null;
 
     private const string LeaderboardName = "Leaderboard";
 
@@ -86,9 +86,9 @@ public class YandexLeaderboard : MonoBehaviour
                     name = "Anonymous";
 
                 PlayerRankingView playerRankingView = Instantiate(_rankingViewPrefab, _container);
-                //if (_playerEntry == null)
-                    //Leaderboard.GetPlayerEntry(LeaderboardName, (result) => _playerID = result);
-
+                if (_playerID == null)
+                    Leaderboard.GetPlayerEntry(LeaderboardName, (result) => _playerID = result.player.uniqueID);
+                Debug.Log($"{entry.player.uniqueID} == {_playerID}: {entry.player.uniqueID == _playerID}");
                 playerRankingView.Initialize(entry.rank.ToString(), name, entry.score.ToString(), entry.player.uniqueID == _playerID);
 
                 rankingCount++;

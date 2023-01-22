@@ -176,11 +176,11 @@ GameObject:
   m_Component:
   - component: {fileID: 403676}
   - component: {fileID: -2613778861312674154}
-  - component: {fileID: 3734996182365361643}
   - component: {fileID: 8057869285255260571}
   - component: {fileID: 3975343157580603376}
   - component: {fileID: -2839900475144199082}
   - component: {fileID: -1082642816340179340}
+  - component: {fileID: -989161731908831748}
   m_Layer: 0
   m_Name: c4
   m_TagString: Untagged
@@ -220,19 +220,7 @@ MonoBehaviour:
   _valueName: 4
   _suit: 3
   _value: 4
---- !u!65 &3734996182365361643
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  _dragger: {fileID: 8057869285255260571}
 --- !u!114 &8057869285255260571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b626aa8634d0b4389a0123e00b540b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _card: {fileID: -2613778861312674154}
 --- !u!114 &3975343157580603376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,3 +441,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &-989161731908831748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6635921, y: 0.06254093, z: 1}
+  m_Center: {x: 0.0006710291, y: 0.0054834187, z: 0}
